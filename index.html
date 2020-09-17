@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Hiking log</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -10,8 +10,138 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Hike log</h1>
+  <div class= 'main-nav col-8'>
+<form id="change-password-form">
+  <fieldset>
+     <div class="dropdown">
+       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Change your password </button>
+       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+         <input type="password" name="passwords[old]" placeholder="Old Password">
+         <input type="password" name="passwords[new]" placeholder="New Password">
+         <input type="submit" value="Change Password!">
+      </div>
+    </div>
+  </fieldset>
+</form>
+        <form id="sign-out">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sign out</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <input type="submit" value="Are You Sure?!">
+           </div>
+        </form>
+      </div>
+</div>
+<h3 id="message"></h3>
+<p id="total-games-message"> </p>
+
+<!-- <div class = login-form-1>
+  <form id="sign-up-form">
+    <fieldset>
+      <legend>Sign up to play</legend>
+      <label for="sign-up-email">Email</label>
+      <input id="sign-up-email" type="email" name="credentials[email]" placeholder="Email">
+      <label for="sign-up-password">Password</label>
+      <input id="sign-up-password" type="password" name="credentials[password]" placeholder="Password">
+      <label for="sign-up-password_confirmation">Password Confirmation</label>
+      <input id="sign-up-password_confirmmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+      <input type="submit" value="Sign up!">
+    </fieldset>
+  </form>
+</div>
+
+<div>
+  <form id="sign-in-form">
+    <fieldset>
+      <legend>Sign in to your account to play!</legend>
+      <label for="sign-in-email">Email</label>
+      <input id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
+      <label for="sign-in-password">Password</label>
+      <input id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
+      <input type="submit" value="Sign In!">
+    </fieldset>
+  </form>
+</div> -->
+
+<div class="container" id="signIn">
+<div class="d-flex justify-content-center h-100">
+  <div class="card">
+    <div class="card-header">
+      <h3>Sign In</h3>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="input-group form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-user"></i></span>
+          </div>
+          <input type="text" class="form-control" placeholder="username">
+
+        </div>
+        <div class="input-group form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
+          </div>
+          <input type="password" class="form-control" placeholder="password">
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Login" class="btn float-right login_btn">
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <div class="d-flex justify-content-center links">
+        Don't have an account?<input type="submit" value="Sign up" class="btn float-right login_btn" id="sign-up-btn">
+      </div>
+      <div class="d-flex justify-content-center">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container" id="signUp">
+<div class="d-flex justify-content-center h-100">
+  <div class="card">
+    <div class="card-header">
+      <h3>Sign Up</h3>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="input-group form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-user"></i></span>
+          </div>
+          <input type="text" class="form-control" placeholder="username">
+
+        </div>
+        <div class="input-group form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
+          </div>
+          <input type="password" class="form-control" placeholder="password">
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Register" class="btn float-right login_btn">
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <div class="d-flex justify-content-center links">
+        Have an account already?<input type="submit" value="Sign in" class="btn float-right login_btn" id="log-in-btn">
+      </div>
+      <div class="d-flex justify-content-center">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
     </body>
 </html>
