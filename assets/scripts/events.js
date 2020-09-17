@@ -5,13 +5,6 @@ const getFormFields = require('./../../lib/get-form-fields')
 // const gameEvents = require('./game')
 // const store = require('./store')
 
-const onBtnForSignUpClick = function (event) {
-  event.preventDefault()
-  $('#sign-in-form').hide()
-  $('#sign-up-form').show()
-  console.log('hello')
-}
-
 // Handles sign on click and sends information to API
 const onSignUp = function (event) {
   event.preventDefault()
@@ -54,7 +47,6 @@ const onSignOut = function (event) {
 }
 
 module.exports = {
-  onBtnForSignUpClick,
   onSignUp,
   onSignIn,
   onChangePassword,

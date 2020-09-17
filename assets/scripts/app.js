@@ -8,6 +8,10 @@ $(() => {
   $('#log-in-btn').on('click', onLoginBtnClick)
   $('#change-password-form').hide()
   $('#sign-out').hide()
+  $('#sign-up-form').on('submit', authEvents.onSignUp)
+  $('#sign-in-form').on('submit', authEvents.onSignIn)
+  $('#change-password-form').on('submit', authEvents.onChangePassword)
+  $('#sign-out').on('submit', authEvents.onSignOut)
 })
 
 const onSignUpBtnClick = function () {
