@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 html, body {
-// background-image: url('https://imgur.com/a/1NAQ0SV');
+  background-image: url('../../Waterfall.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
@@ -20,7 +20,9 @@ html, body {
   display: flex;
   justify-content: flex-end;
 }
-
+.dropdown-menu{
+  background: rgba(0,0,0,0.5);
+}
 .container {
   height: 100%;
   align-content: center;
@@ -31,7 +33,16 @@ html, body {
   margin-top: auto;
   margin-bottom: auto;
   width: 400px;
-  background-color: rgba(0,0,0,0.5) !important;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.index-card {
+  height: 370px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
 }
 
 .social_icon span {
@@ -59,12 +70,12 @@ html, body {
   width: 50px;
   background-color: #FFC312;
   color: black;
-  border:0 !important;
+  border:0;
 }
 
 input:focus {
-  outline: 0 0 0 0  !important;
-  box-shadow: 0 0 0 0 !important;
+  outline: 0 0 0 0;
+  box-shadow: 0 0 0 0;
 
 }
 
@@ -96,4 +107,9 @@ input:focus {
 
 .links a {
   margin-left: 4px;
+}
+
+footer {
+  background: black;
+  color: white;
 }

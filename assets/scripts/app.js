@@ -1,5 +1,6 @@
 'use strict'
 const authEvents = require('./events')
+const hikeEvents = require('./hike/events')
 
 // Receive clicks from user
 $(() => {
@@ -12,6 +13,11 @@ $(() => {
   $('#sign-in-form').on('submit', authEvents.onSignIn)
   $('#change-password-form').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
+  $('#create_hike').on('submit', hikeEvents.onCreateHike)
+  $('#index-btn').on('click', hikeEvents.onIndexBtn)
+  $('#create-btn').on('click', hikeEvents.onCreateBtn)
+  $('#show-btn').on('click', hikeEvents.onShowBtn)
+  $('#edit-btn').on('click', hikeEvents.onEditBtn)
 })
 
 const onSignUpBtnClick = function () {

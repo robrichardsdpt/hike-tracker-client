@@ -19,6 +19,7 @@ const onSignInSuccess = function (response) {
   $('#sign-out').show()
   $('#signUp').hide()
   $('#signIn').hide()
+  console.log(store.user.token)
 }
 const onSignInFailure = function () {
   $('#message').text('Sign in failed.  Please try again')
