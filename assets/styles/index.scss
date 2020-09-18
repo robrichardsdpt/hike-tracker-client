@@ -36,34 +36,46 @@ html, body {
   background-color: rgba(0,0,0,0.5);
 }
 
-.index-card {
-  height: 370px;
+.search-card {
+  height: auto;
   margin-top: auto;
   margin-bottom: auto;
   width: 400px;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.6);
   color: white;
 }
 
-.social_icon span {
+.index-card {
+  height: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 600px;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+}
+
+.create-card {
+  height: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 600px;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+}
+
+span {
   font-size: 60px;
   margin-left: 10px;
   color: #FFC312;
 }
 
-.social_icon span:hover {
+span:hover {
   color: white;
   cursor: pointer;
 }
 
 .card-header h3 {
   color: white;
-}
-
-.social_icon{
-  position: absolute;
-  right: 20px;
-  top: -45px;
 }
 
 .input-group-prepend span {
@@ -94,6 +106,17 @@ input:focus {
   color: black;
   background-color: #FFC312;
   width: 100px;
+}
+
+.submit-create-btn {
+  color: black;
+  background-color: #FFC312;
+  width: 100px;
+}
+
+.submit-create-btn:hover{
+  color: black;
+  background-color: white;
 }
 
 .login_btn:hover {

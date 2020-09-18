@@ -36,7 +36,7 @@
                   <button id="index-btn" class="btn float-right login_btn">View All</button>
                   <button id="show-btn" class="btn float-right login_btn">Search</button>
                   <button id="create-btn" class="btn float-right login_btn">Create</button>
-                   <button id="delete-btn" class="btn float-right login_btn">Edit</button>
+                   <button id="edit-btn" class="btn float-right login_btn">Edit</button>
                  </div>
                </div>
              </fieldset>
@@ -146,7 +146,7 @@
   </div>
 </div>
 <!-- New hike form -->
-<div class="container" id="newHike">
+<div class="container create-card" id="newHike">
   <form class="well form-horizontal" id="create_hike">
     <fieldset>
 <!-- Form Name -->
@@ -155,9 +155,9 @@
     </div>
 <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label">Date:</label>
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
+        <label class="col-md-8 control-label">Date:</label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
             <input placeholder="Date" name="hike[date]" class="form-control"  type="text">
           </div>
@@ -167,9 +167,9 @@
 <!-- Text input-->
 
       <div class="form-group">
-        <label class="col-md-4 control-label">Trail(s):</label>
-         <div class="col-md-4 inputGroupContainer">
-           <div class="input-group">
+        <label class="col-md-8 control-label">Trail(s):</label>
+         <div class="col-md-8 inputGroupContainer">
+           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-hiking"></i></span>
             <input name="hike[trails]" placeholder="Trails hiked" class="form-control"  type="text">
            </div>
@@ -177,9 +177,9 @@
         </div>
 <!-- Text input-->
         <div class="form-group">
-          <label class="col-md-4 control-label">Distance hiked(miles):</label>
-          <div class="col-md-4 inputGroupContainer">
-            <div class="input-group">
+          <label class="col-md-8 control-label">Distance hiked(miles):</label>
+          <div class="col-md-8 inputGroupContainer">
+            <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-ruler"></i></span>
               <input  name="hike[distance]" placeholder="Distance hiked in miles." class="form-control"  type="text">
             </div>
@@ -187,9 +187,9 @@
         </div>
 <!-- Text input-->
         <div class="form-group">
-          <label class="col-md-4 control-label" >Elevation gain(in feet):</label>
-          <div class="col-md-4 inputGroupContainer">
-           <div class="input-group">
+          <label class="col-md-8 control-label" >Elevation gain(in feet):</label>
+          <div class="col-md-8 inputGroupContainer">
+           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-ruler"></i></span>
             <input name="hike[elevation]" placeholder="Elevation gain in feet." class="form-control"  type="text">
            </div>
@@ -197,9 +197,9 @@
         </div>
 <!-- Text input-->
         <div class="form-group">
-          <label class="col-md-4 control-label" >Time taken(in hours:minutes)</label>
-          <div class="col-md-4 inputGroupContainer">
-            <div class="input-group">
+          <label class="col-md-8 control-label" >Time taken(in hours:minutes)</label>
+          <div class="col-md-8 inputGroupContainer">
+            <div class="input-group-prepend">
               <span class="input-group-text"><i class="far fa-clock"></i></span>
               <input name="hike[timeTaken]" placeholder="Time taken" class="form-control"  type="text">
             </div>
@@ -207,30 +207,30 @@
         </div>
 <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label">Mountain(s) climbed:</label>
-        <div class="col-md-4 inputGroupContainer">
-         <div class="input-group">
+        <label class="col-md-8 control-label">Mountain(s) climbed:</label>
+        <div class="col-md-8 inputGroupContainer">
+         <div class="input-group-prepend">
           <span class="input-group-text"><i class="fas fa-mountain"></i></span>
-          <input name="hike[mountains]" placeholder="Mountain(s) climbed" class="form-control"  type="text">
+          <input name="hike[mountainsClimbed]" placeholder="Mountain(s) climbed" class="form-control"  type="text">
          </div>
         </div>
       </div>
 
 <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label">Did you hike with someone?:</label>
-        <div class="col-md-4 inputGroupContainer">
-         <div class="input-group">
+        <label class="col-md-8 control-label">Did you hike with someone?:</label>
+        <div class="col-md-8 inputGroupContainer">
+         <div class="input-group-prepend">
           <span class="input-group-text"><i class="fas fa-user-friends"></i></span>
-          <input name="hike[withSomeone]" placeholder="Names of people you hiked with" class="form-control" type="text">
+          <input name="hike[hikedWith]" placeholder="Names of people you hiked with" class="form-control" type="text">
          </div>
         </div>
       </div>
 <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label">Trail notes:</label>
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
+        <label class="col-md-8 control-label">Trail notes:</label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group-prepend">
             <span class="input-group-text"><i class="far fa-clipboard"></i></span>
             <input name="hike[trailNotes]" placeholder="Trail notes." class="form-control" type="text">
           </div>
@@ -239,21 +239,55 @@
 
 
 <!-- Success message -->
-      <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
+      <div class="alert alert-success" id="success_message">Success!! <i class="far fa-thumbs-up"></i></div>
 
 <!-- Button -->
       <div class="form-group">
         <label class="col-md-4 control-label"></label>
-        <div class="col-md-4"><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+        <input type="submit" value="Submit" class="btn float-right submit-create-btn">
       </div>
       </div>
 
 
       </fieldset>
     </form>
-
+  <!-- Index-->>
     </div>
   <div class = "container index-card" id="index-container">
+  </div>
+  <!-- Show-->>
+
+  <div class = "container search-card" id="search-container">
+    <h3>Search by...</h3>
+    <div class="form-group">
+      <label class="col-md-4 control-label">ID:</label>
+         <div class="inputGroupContainer">
+           <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-fingerprint"></i></span>
+            <input name="hike[id]" placeholder="ID #" class="form-control"  type="text">
+           </div>
+          </div>
+        </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label">Trail(s):</label>
+       <div class="inputGroupContainer">
+         <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-hiking"></i></span>
+          <input name="hike[trails]" placeholder="Trails hiked" class="form-control"  type="text">
+         </div>
+        </div>
+      </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label">Mountain(s):</label>
+        <div class="inputGroupContainer">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-mountain"></i></span>
+            <input name="hike[mountainsClimbed]" placeholder="Mountain hiked" class="form-control"  type="text">
+          </div>
+        </div>
+      </div>
+
+
   </div>
 <footer>
       <h3 id="message"></h3>

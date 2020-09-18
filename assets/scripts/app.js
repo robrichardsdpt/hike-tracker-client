@@ -18,6 +18,8 @@ $(() => {
   $('#create-btn').on('click', hikeEvents.onCreateBtn)
   $('#show-btn').on('click', hikeEvents.onShowBtn)
   $('#edit-btn').on('click', hikeEvents.onEditBtn)
+  $('#search-container').hide()
+  $('#newHike').hide()
 })
 
 const onSignUpBtnClick = function () {

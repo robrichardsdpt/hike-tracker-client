@@ -16,7 +16,7 @@ const onCreateHike = function (event) {
 const onIndexBtn = function (event) {
   event.preventDefault()
   $('#newHike').hide()
-  $('#hikeIndex').show()
+  $('#index-container').show()
   hikeApi.getIndex()
     .then(hikeUi.onIndexSuccess)
     .catch(hikeUi.onIndexFailure)
@@ -25,13 +25,16 @@ const onIndexBtn = function (event) {
 const onCreateBtn = function (event) {
   event.preventDefault()
   $('#newHike').show()
-  $('#hikeIndex').hide()
+  $('#index-container').hide()
+  $('#search-container').hide()
+  $('#success_message').hide()
 }
 
 const onShowBtn = function (event) {
   event.preventDefault()
   $('#newHike').hide()
-  $('#hikeIndex').hide()
+  $('#index-container').hide()
+  $('#search-container').show()
 }
 
 const onEditBtn = function (event) {

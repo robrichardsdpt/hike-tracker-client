@@ -3,8 +3,8 @@ const config = require('./../config')
 const store = require('./../store')
 
 const onCreateHikeSuccess = function (response) {
-  $('#message').text('Thanks for creating a hike')
   $('#create_hike').trigger('reset')
+  $('#success_message').show()
 }
 const onCreateHikeFailure = function () {
   $('#message').text('Create hike failed.  Please try again')
@@ -14,14 +14,18 @@ const onIndexSuccess = function (response) {
   // $('#message').text(response.hikes.hike)
   // console.log(response)
   // console.log(response.hikes)
-  $('#message').html('')
+  $('#index-container').html('')
   // loop through API response data
   response.hikes.forEach(hike => {
     // build HTML element with data
     const hikeHTML = (`
       <h4>Date: ${hike.date}</h4>
       <p>Trail: ${hike.trails}</p>
-      <p>Mountain: ${hike.mountains}</p>
+      <p>Distance: ${hike.distance}</p>
+      <p>Elevation: ${hike.elevation}</p>
+      <p>Mountain: ${hike.mountainsClimbed}</p>
+      <p>Hiking partner(s): ${hike.hikedWith}</p>
+      <p>Trail Notes: ${hike.trailNotes}</p>
       <p>ID: ${hike._id}</p>
       <br>
     `)
