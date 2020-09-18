@@ -147,6 +147,7 @@
 </div>
 <!-- New hike form -->
 <div class="container create-card" id="newHike">
+  <div>
   <form class="well form-horizontal" id="create_hike">
     <fieldset>
 <!-- Form Name -->
@@ -246,16 +247,15 @@
         <label class="col-md-4 control-label"></label>
         <input type="submit" value="Submit" class="btn float-right submit-create-btn">
       </div>
-      </div>
-
-
       </fieldset>
     </form>
-  <!-- Index-->>
+    </div>
+  <!-- Index-->
     </div>
   <div class = "container index-card" id="index-container">
+    <div class="scrollable-index" id="scrollable-index"></div>
   </div>
-  <!-- Show-->>
+  <!-- Show-->
 
   <div class = "container search-card" id="search-container">
     <h3>Search by...</h3>
@@ -265,6 +265,7 @@
            <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-fingerprint"></i></span>
             <input name="hike[id]" placeholder="ID #" class="form-control"  type="text">
+            <input type="submit" value="Submit" class="btn float-right submit-create-btn">
            </div>
           </div>
         </div>
@@ -274,6 +275,7 @@
          <div class="input-group-prepend">
           <span class="input-group-text"><i class="fas fa-hiking"></i></span>
           <input name="hike[trails]" placeholder="Trails hiked" class="form-control"  type="text">
+          <input type="submit" value="Submit" class="btn float-right submit-create-btn">
          </div>
         </div>
       </div>
@@ -283,14 +285,10 @@
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-mountain"></i></span>
             <input name="hike[mountainsClimbed]" placeholder="Mountain hiked" class="form-control"  type="text">
+            <input type="submit" value="Submit" class="btn float-right submit-create-btn">
           </div>
         </div>
       </div>
-
-
-  </div>
-<footer>
-      <h3 id="message"></h3>
-</footer>
+    </div>
   </body>
 </html>

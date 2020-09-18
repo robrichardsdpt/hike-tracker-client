@@ -5,6 +5,7 @@ html, body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
+  background-color: black;
 }
 
 .nav {
@@ -45,14 +46,7 @@ html, body {
   color: white;
 }
 
-.index-card {
-  height: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  width: 600px;
-  background-color: rgba(0,0,0,0.6);
-  color: white;
-}
+
 
 .create-card {
   height: auto;
@@ -132,7 +126,18 @@ input:focus {
   margin-left: 4px;
 }
 
-footer {
-  background: black;
+.index-card {
+  height: 90%;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 600px;
+  background-color: rgba(0,0,0,0.6);
   color: white;
+}
+
+.scrollable-index {
+  height: 100%;
+  overflow: auto;
+  color: white;
+  background-color: rgba(0,0,0,0);;
 }

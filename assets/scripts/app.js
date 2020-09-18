@@ -20,6 +20,7 @@ $(() => {
   $('#edit-btn').on('click', hikeEvents.onEditBtn)
   $('#search-container').hide()
   $('#newHike').hide()
+  $('#index-container').hide()
 })
 
 const onSignUpBtnClick = function () {

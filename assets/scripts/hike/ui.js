@@ -14,7 +14,7 @@ const onIndexSuccess = function (response) {
   // $('#message').text(response.hikes.hike)
   // console.log(response)
   // console.log(response.hikes)
-  $('#index-container').html('')
+  $('#scrollable-index').html('')
   // loop through API response data
   response.hikes.forEach(hike => {
     // build HTML element with data
@@ -30,7 +30,7 @@ const onIndexSuccess = function (response) {
       <br>
     `)
     // append bookHTML to our book-display element
-    $('#index-container').append(hikeHTML)
+    $('#scrollable-index').append(hikeHTML)
   })
 }
 
