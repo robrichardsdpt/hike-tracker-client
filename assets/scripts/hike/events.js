@@ -43,10 +43,32 @@ const onEditBtn = function (event) {
   $('#hikeIndex').hide()
 }
 
+const onShowById = function (event) {
+  event.preventDefault()
+  $('search-result-container').show()
+  const form = event.target
+  const data = getFormFields(form)
+  const id = data.hike.id
+  hikeApi.showById(id)
+    .then(hikeUi.onShowByIdSuccess)
+    .catch(hikeUi.onShowByIdFailure)
+}
+
+const onShowByTrail = function (event) {
+  event.preventDefault()
+}
+
+const onShowByMountain = function (event) {
+  event.preventDefault()
+}
+
 module.exports = {
   onCreateHike,
   onIndexBtn,
   onCreateBtn,
   onShowBtn,
-  onEditBtn
+  onEditBtn,
+  onShowById,
+  onShowByTrail,
+  onShowByMountain
 }

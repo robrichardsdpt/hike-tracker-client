@@ -145,6 +145,7 @@
     </div>
   </div>
 </div>
+
 <!-- New hike form -->
 <div class="container create-card" id="newHike">
   <div>
@@ -250,32 +251,35 @@
       </fieldset>
     </form>
     </div>
+
   <!-- Index-->
     </div>
   <div class = "container index-card" id="index-container">
     <div class="scrollable-index" id="scrollable-index"></div>
   </div>
-  <!-- Show-->
 
+  <!-- Show-->
   <div class = "container search-card" id="search-container">
     <h3>Search by...</h3>
+    <form id="search-by-id">
     <div class="form-group">
       <label class="col-md-4 control-label">ID:</label>
          <div class="inputGroupContainer">
            <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-fingerprint"></i></span>
             <input name="hike[id]" placeholder="ID #" class="form-control"  type="text">
-            <input type="submit" value="Submit" class="btn float-right submit-create-btn">
+            <input type="submit" value="Submit" class="btn float-right submit-create-btn" id="id-search-btn">
            </div>
           </div>
         </div>
+      </form>
     <div class="form-group">
       <label class="col-md-4 control-label">Trail(s):</label>
        <div class="inputGroupContainer">
          <div class="input-group-prepend">
           <span class="input-group-text"><i class="fas fa-hiking"></i></span>
-          <input name="hike[trails]" placeholder="Trails hiked" class="form-control"  type="text">
-          <input type="submit" value="Submit" class="btn float-right submit-create-btn">
+          <input name="hike[trails]" placeholder="Trail hiked" class="form-control"  type="text">
+          <input type="submit" value="Submit" class="btn float-right submit-create-btn" id="trail-search-btn">
          </div>
         </div>
       </div>
@@ -285,10 +289,11 @@
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-mountain"></i></span>
             <input name="hike[mountainsClimbed]" placeholder="Mountain hiked" class="form-control"  type="text">
-            <input type="submit" value="Submit" class="btn float-right submit-create-btn">
+            <input type="submit" value="Submit" class="btn float-right submit-create-btn" id="mountain-search-btn">
           </div>
         </div>
       </div>
     </div>
+    <div class="container search-result-card" id="search-result-container"></div>
   </body>
 </html>

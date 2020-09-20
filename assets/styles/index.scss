@@ -141,3 +141,17 @@ input:focus {
   color: white;
   background-color: rgba(0,0,0,0);;
 }
+
+#search-container {
+  padding: 10px;
+}
+
+.search-result-card {
+  height: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 600px;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  padding: 10x;
+}

@@ -23,7 +23,18 @@ const getIndex = function () {
   })
 }
 
+const showById = function (hikeId) {
+  return $.ajax({
+    url: config.apiUrl + '/hikes/' + hikeId,
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createHike,
-  getIndex
+  getIndex,
+  showById
 }
