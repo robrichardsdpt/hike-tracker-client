@@ -23,6 +23,7 @@ const onIndexSuccess = function (response) {
       <p>Trail: ${hike.trails}</p>
       <p>Distance: ${hike.distance}</p>
       <p>Elevation: ${hike.elevation}</p>
+      <p>Time taken: ${hike.timeTaken}</p>
       <p>Mountain: ${hike.mountainsClimbed}</p>
       <p>Hiking partner(s): ${hike.hikedWith}</p>
       <p>Trail Notes: ${hike.trailNotes}</p>
@@ -45,9 +46,10 @@ const onShowByIdSuccess = function (response) {
   store.hike = response.hike
   const hikeHTML = (`<div>
       <h4>Date: ${response.hike.date}</h4>
-      <p>Trail: ${response.hike.trails}</p>
-      <p>Distance: ${response.hike.distance}</p>
-      <p>Elevation: ${response.hike.elevation}</p>
+      <p>Trails: ${response.hike.trails}</p>
+      <p>Distance (in miles): ${response.hike.distance}</p>
+      <p>Elevation (in feet): ${response.hike.elevation}</p>
+      <p>Time taken: ${response.hike.timeTaken}</p>
       <p>Mountain: ${response.hike.mountainsClimbed}</p>
       <p>Hiking partner(s): ${response.hike.hikedWith}</p>
       <p>Trail Notes: ${response.hike.trailNotes}</p>
@@ -60,6 +62,7 @@ const onShowByIdSuccess = function (response) {
   $('#trails-edit').attr('value', store.hike.trails)
   $('#distance-edit').attr('value', store.hike.distance)
   $('#elevation-edit').attr('value', store.hike.elevation)
+  $('#time-edit').attr('value', store.hike.timeTaken)
   $('#mountains-edit').attr('value', store.hike.mountainsClimbed)
   $('#partner-edit').attr('value', store.hike.hikedWith)
   $('#notes-edit').attr('value', store.hike.trailNotes)
