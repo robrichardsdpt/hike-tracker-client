@@ -56,83 +56,94 @@ const onShowByIdSuccess = function (response) {
 
   `)
   $('#search-result').append(hikeHTML)
+  $('#date-edit').attr('value', store.hike.date)
+  $('#trails-edit').attr('value', store.hike.trails)
+  $('#distance-edit').attr('value', store.hike.distance)
+  $('#elevation-edit').attr('value', store.hike.elevation)
+  $('#mountains-edit').attr('value', store.hike.mountainsClimbed)
+  $('#partner-edit').attr('value', store.hike.hikedWith)
+  $('#notes-edit').attr('value', store.hike.trailNotes)
+  $('#edit-id').text(`ID: ${store.hike._id}`)
 }
 
 const onShowByIdFailure = function () {
   $('index-container').text('Could not find hike by ID.  Please try again.')
 }
 
-const onEditBtnSuccess = function (response) {
+const onSubmitEditSuccess = function (response) {
   $('#edit-fn-btns').show()
-  $('#edit-form-div').html('')
-  const hikeHTML = (`<div>
-      <p><div class="form-group">
-        <label class="col-md-8 control-label">Date:</label></p>
-        <div class="col-md-8 inputGroupContainer">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
-            <input value="${store.hike.date}" name="hike[date]" class="form-control"  type="text">
-          </div>
-        </div>
-      </div>
-      <p><div class="form-group">
-        <label class="col-md-8 control-label">Trail(s):</label>
-        <div class="col-md-8 inputGroupContainer">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
-            <input value="${store.hike.trails}" name="hike[trails]" class="form-control"  type="text">
-          </div>
-        </div>
-      </div></p>
-      <p><div class="form-group">
-        <label class="col-md-8 control-label">Distance:</label>
-        <div class="col-md-8 inputGroupContainer">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
-            <input value="${store.hike.distance}" name="hike[distance]" class="form-control"  type="text">
-          </div>
-        </div>
-      </div></p>
-      <p><div class="form-group">
-        <label class="col-md-8 control-label">Elevation:</label>
-        <div class="col-md-8 inputGroupContainer">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
-            <input value="${store.hike.elevation}" name="hike[elevation]" class="form-control"  type="text">
-          </div>
-        </div>
-      </div></p>
-      <p><div class="form-group">
-        <label class="col-md-8 control-label">Mountain(s):</label>
-        <div class="col-md-8 inputGroupContainer">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
-            <input value="${store.hike.mountainsClimbed}" name="hike[mountainsClimbed]" class="form-control"  type="text">
-          </div>
-        </div>
-      </div></p>
-      <p><div class="form-group">
-        <label class="col-md-8 control-label">Did you hike with someone?</label>
-        <div class="col-md-8 inputGroupContainer">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
-            <input value="${store.hike.hikedWith}" name="hike[hikedWith]" class="form-control"  type="text">
-          </div>
-        </div>
-      </div></p>
-      <p><div class="form-group">
-        <label class="col-md-8 control-label">Trail notes:</label>
-        <div class="col-md-8 inputGroupContainer">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
-            <input value="${store.hike.trailNotes}" name="hike[trailNotes]" class="form-control"  type="text">
-          </div>
-        </div>
-      </div></p>
-      <p>ID: ${store.hike._id}</p>
-      </div>
-  `)
-  $('#edit-form-div').append(hikeHTML)
+  // const hikeHTML = (`<div>
+  //     <p><div class="form-group">
+  //       <label class="col-md-8 control-label">Date:</label></p>
+  //       <div class="col-md-8 inputGroupContainer">
+  //         <div class="input-group-prepend">
+  //           <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+  //           <input value="${store.hike.date}" name="hike[date]" class="form-control"  type="text">
+  //         </div>
+  //       </div>
+  //     </div>
+  //     <p><div class="form-group">
+  //       <label class="col-md-8 control-label">Trail(s):</label>
+  //       <div class="col-md-8 inputGroupContainer">
+  //         <div class="input-group-prepend">
+  //           <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+  //           <input value="${store.hike.trails}" name="hike[trails]" class="form-control"  type="text">
+  //         </div>
+  //       </div>
+  //     </div></p>
+  //     <p><div class="form-group">
+  //       <label class="col-md-8 control-label">Distance:</label>
+  //       <div class="col-md-8 inputGroupContainer">
+  //         <div class="input-group-prepend">
+  //           <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+  //           <input value="${store.hike.distance}" name="hike[distance]" class="form-control"  type="text">
+  //         </div>
+  //       </div>
+  //     </div></p>
+  //     <p><div class="form-group">
+  //       <label class="col-md-8 control-label">Elevation:</label>
+  //       <div class="col-md-8 inputGroupContainer">
+  //         <div class="input-group-prepend">
+  //           <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+  //           <input value="${store.hike.elevation}" name="hike[elevation]" class="form-control"  type="text">
+  //         </div>
+  //       </div>
+  //     </div></p>
+  //     <p><div class="form-group">
+  //       <label class="col-md-8 control-label">Mountain(s):</label>
+  //       <div class="col-md-8 inputGroupContainer">
+  //         <div class="input-group-prepend">
+  //           <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+  //           <input value="${store.hike.mountainsClimbed}" name="hike[mountainsClimbed]" class="form-control"  type="text">
+  //         </div>
+  //       </div>
+  //     </div></p>
+  //     <p><div class="form-group">
+  //       <label class="col-md-8 control-label">Did you hike with someone?</label>
+  //       <div class="col-md-8 inputGroupContainer">
+  //         <div class="input-group-prepend">
+  //           <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+  //           <input value="${store.hike.hikedWith}" name="hike[hikedWith]" class="form-control"  type="text">
+  //         </div>
+  //       </div>
+  //     </div></p>
+  //     <p><div class="form-group">
+  //       <label class="col-md-8 control-label">Trail notes:</label>
+  //       <div class="col-md-8 inputGroupContainer">
+  //         <div class="input-group-prepend">
+  //           <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+  //           <input value="${store.hike.trailNotes}" name="hike[trailNotes]" class="form-control"  type="text">
+  //         </div>
+  //       </div>
+  //     </div></p>
+  //     <p>ID: ${store.hike._id}</p>
+  //     </div>
+  // `)
+  // $('#edit-form-div').append(hikeHTML)
+}
+
+const onSubmitEditFailure = function () {
+  console.log('error')
 }
 
 const onSubmitDeleteSuccess = function () {
@@ -150,7 +161,8 @@ module.exports = {
   onIndexFailure,
   onShowByIdSuccess,
   onShowByIdFailure,
-  onEditBtnSuccess,
+  onSubmitEditSuccess,
   onSubmitDeleteSuccess,
-  onSubmitDeleteFailure
+  onSubmitDeleteFailure,
+  onSubmitEditFailure
 }
