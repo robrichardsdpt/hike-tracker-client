@@ -1,6 +1,6 @@
 'use strict'
-const config = require('./../config')
 const store = require('./../store')
+const hikeApi = require('./api')
 
 const onCreateHikeSuccess = function (response) {
   $('#create_hike').trigger('reset')
@@ -72,74 +72,14 @@ const onShowByIdFailure = function () {
 
 const onSubmitEditSuccess = function (response) {
   $('#edit-fn-btns').show()
-  // const hikeHTML = (`<div>
-  //     <p><div class="form-group">
-  //       <label class="col-md-8 control-label">Date:</label></p>
-  //       <div class="col-md-8 inputGroupContainer">
-  //         <div class="input-group-prepend">
-  //           <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
-  //           <input value="${store.hike.date}" name="hike[date]" class="form-control"  type="text">
-  //         </div>
-  //       </div>
-  //     </div>
-  //     <p><div class="form-group">
-  //       <label class="col-md-8 control-label">Trail(s):</label>
-  //       <div class="col-md-8 inputGroupContainer">
-  //         <div class="input-group-prepend">
-  //           <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
-  //           <input value="${store.hike.trails}" name="hike[trails]" class="form-control"  type="text">
-  //         </div>
-  //       </div>
-  //     </div></p>
-  //     <p><div class="form-group">
-  //       <label class="col-md-8 control-label">Distance:</label>
-  //       <div class="col-md-8 inputGroupContainer">
-  //         <div class="input-group-prepend">
-  //           <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
-  //           <input value="${store.hike.distance}" name="hike[distance]" class="form-control"  type="text">
-  //         </div>
-  //       </div>
-  //     </div></p>
-  //     <p><div class="form-group">
-  //       <label class="col-md-8 control-label">Elevation:</label>
-  //       <div class="col-md-8 inputGroupContainer">
-  //         <div class="input-group-prepend">
-  //           <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
-  //           <input value="${store.hike.elevation}" name="hike[elevation]" class="form-control"  type="text">
-  //         </div>
-  //       </div>
-  //     </div></p>
-  //     <p><div class="form-group">
-  //       <label class="col-md-8 control-label">Mountain(s):</label>
-  //       <div class="col-md-8 inputGroupContainer">
-  //         <div class="input-group-prepend">
-  //           <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
-  //           <input value="${store.hike.mountainsClimbed}" name="hike[mountainsClimbed]" class="form-control"  type="text">
-  //         </div>
-  //       </div>
-  //     </div></p>
-  //     <p><div class="form-group">
-  //       <label class="col-md-8 control-label">Did you hike with someone?</label>
-  //       <div class="col-md-8 inputGroupContainer">
-  //         <div class="input-group-prepend">
-  //           <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
-  //           <input value="${store.hike.hikedWith}" name="hike[hikedWith]" class="form-control"  type="text">
-  //         </div>
-  //       </div>
-  //     </div></p>
-  //     <p><div class="form-group">
-  //       <label class="col-md-8 control-label">Trail notes:</label>
-  //       <div class="col-md-8 inputGroupContainer">
-  //         <div class="input-group-prepend">
-  //           <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
-  //           <input value="${store.hike.trailNotes}" name="hike[trailNotes]" class="form-control"  type="text">
-  //         </div>
-  //       </div>
-  //     </div></p>
-  //     <p>ID: ${store.hike._id}</p>
-  //     </div>
-  // `)
-  // $('#edit-form-div').append(hikeHTML)
+  $('#editHike').hide()
+  const id = store.hike._id
+  $('#edit-fn-container').show()
+  $('#edit').show()
+  $('#delete').show()
+  hikeApi.showById(id)
+    .then(onShowByIdSuccess)
+    .catch(onShowByIdFailure)
 }
 
 const onSubmitEditFailure = function () {

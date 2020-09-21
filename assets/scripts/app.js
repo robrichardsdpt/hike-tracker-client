@@ -22,6 +22,7 @@ $(() => {
   $('#newHike').hide()
   $('#index-container').hide()
   $('#search-result-container').hide()
+  $('#editHike').hide()
   // search functionality
   $('#search-by-id').on('submit', hikeEvents.onShowById)
   $('#mountain-search-btn').on('submit', hikeEvents.onShowByMountain)

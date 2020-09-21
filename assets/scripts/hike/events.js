@@ -76,7 +76,9 @@ const onEdit = function (event) {
   $('#submit-edit-btn').show()
   $('#cancel-edit-btn').show()
   $('#delete').hide()
+  $('#editHike').show()
   hikeUi.onEditBtnSuccess()
+  $('#editHikeContainer').show()
   $('#edit-form-div').show()
 }
 
