@@ -2,6 +2,7 @@
 const getFormFields = require('./../../../lib/get-form-fields')
 const hikeApi = require('./api')
 const hikeUi = require('./ui')
+const store = require('../store')
 
 const onCreateHike = function (event) {
   event.preventDefault()
@@ -65,7 +66,42 @@ const onShowByMountain = function (event) {
 const onEdit = function (event) {
   event.preventDefault()
   console.log('hello')
+  $('#edit').hide()
+  $('#submit-edit-btn').show()
+  $('#cancel-edit-btn').show()
+  $('#delete').hide()
   hikeUi.onEditBtnSuccess()
+}
+
+const onSubmitEdit = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data)
+  console.log(store.hike._id)
+  hikeApi.editHike(data)
+    .then(hikeUi.onSubmitEditSuccess)
+    .catch(hikeUi.onSubmitEditFailure)
+}
+
+const onDelete = function () {
+  event.preventDefault()
+  console.log('hello')
+  $('#submit-delete-btn').show()
+  $('#cancel-delete-btn').show()
+}
+
+const onSubmitDelete = function () {
+  event.preventDefault()
+  hikeApi.deleteHike(store.hike._id)
+    .then(hikeUi.onSubmitDeleteSuccess)
+    .catch(hikeUi.onSubmitDeleteFailure)
+}
+
+const onCancelDelete = function () {
+  event.preventDefault()
+  $('#submit-delete-btn').hide()
+  $('#cancel-delete-btn').hide()
 }
 
 module.exports = {
@@ -77,5 +113,9 @@ module.exports = {
   onShowById,
   onShowByTrail,
   onShowByMountain,
-  onEdit
+  onEdit,
+  onSubmitEdit,
+  onDelete,
+  onSubmitDelete,
+  onCancelDelete
 }

@@ -62,8 +62,7 @@ const onShowByIdFailure = function () {
 }
 
 const onEditBtnSuccess = function (response) {
-  $('#search-result-container').html('')
-  console.log(response)
+  $('#edit-form-div')
   const hikeHTML = (`<div>
       <p><div class="form-group">
         <label class="col-md-8 control-label">Date:</label></p>
@@ -130,14 +129,16 @@ const onEditBtnSuccess = function (response) {
       </div></p>
       <p>ID: ${store.hike._id}</p>
       </div>
-      <div id="edit-fn-container">
-        <div class="input-group-prepend" onclick="onEdit()">
-        <span class="input-group-text"><i class="fas fa-edit"></i></span></div>
-        <div class="input-group-prepend" id="delete">
-          <span class="input-group-text"><i class="fas fa-trash-alt"></i></span></div>
-      </div>
   `)
-  $('#search-result-container').append(hikeHTML)
+  $('#edit-form-div').append(hikeHTML)
+}
+
+const onSubmitDeleteSuccess = function () {
+  $('#search-result').html('<p>Successfully deleted hike</p>')
+}
+
+const onSubmitDeleteFailure = function () {
+  console.log('error')
 }
 
 module.exports = {
@@ -147,5 +148,7 @@ module.exports = {
   onIndexFailure,
   onShowByIdSuccess,
   onShowByIdFailure,
-  onEditBtnSuccess
+  onEditBtnSuccess,
+  onSubmitDeleteSuccess,
+  onSubmitDeleteFailure
 }

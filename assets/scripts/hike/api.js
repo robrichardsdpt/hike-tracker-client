@@ -32,9 +32,31 @@ const showById = function (hikeId) {
     }
   })
 }
+const editHike = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/hikes/' + store.hike._id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: data
+  })
+}
+
+const deleteHike = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/hikes/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   createHike,
   getIndex,
-  showById
+  showById,
+  editHike,
+  deleteHike
 }

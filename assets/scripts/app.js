@@ -27,14 +27,17 @@ $(() => {
   $('#mountain-search-btn').on('submit', hikeEvents.onShowByMountain)
   $('#trail-search-btn').on('submit', hikeEvents.onShowByTrail)
   // edit functionality
-  $('#delete').on('click', onDelete)
+  $('#delete').on('click', hikeEvents.onDelete)
   $('#edit').on('click', hikeEvents.onEdit)
+  $('#edit_success_message').hide()
+  $('#submit-edit-btn').hide()
+  $('#cancel-edit-btn').hide()
+  $('#submit-edit-btn').on('click', hikeEvents.onSubmitEdit)
+  $('#submit-delete-btn').hide()
+  $('#cancel-delete-btn').hide()
+  $('#submit-delete-btn').on('click', hikeEvents.onSubmitDelete)
+  $('#cancel-delete-btn').on('click', hikeEvents.onCancelDelete)
 })
-
-const onDelete = function () {
-  event.preventDefault()
-  console.log('hello')
-}
 
 const onSignUpBtnClick = function () {
   $('#signUp').show()
