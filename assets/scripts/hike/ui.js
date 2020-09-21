@@ -39,9 +39,10 @@ const onIndexFailure = function () {
 }
 
 const onShowByIdSuccess = function (response) {
-  $('#search-result-container').html('')
+  $('#search-result').html('')
   console.log(response)
-  const hikeHTML = (`
+  store.hike = response.hike
+  const hikeHTML = (`<div>
       <h4>Date: ${response.hike.date}</h4>
       <p>Trail: ${response.hike.trails}</p>
       <p>Distance: ${response.hike.distance}</p>
@@ -50,13 +51,93 @@ const onShowByIdSuccess = function (response) {
       <p>Hiking partner(s): ${response.hike.hikedWith}</p>
       <p>Trail Notes: ${response.hike.trailNotes}</p>
       <p>ID: ${response.hike._id}</p>
-      <br>
+      </div>
+
   `)
-  $('#search-result-container').append(hikeHTML)
+  $('#search-result').append(hikeHTML)
 }
 
 const onShowByIdFailure = function () {
   $('index-container').text('Could not find hike by ID.  Please try again.')
+}
+
+const onEditBtnSuccess = function (response) {
+  $('#search-result-container').html('')
+  console.log(response)
+  const hikeHTML = (`<div>
+      <p><div class="form-group">
+        <label class="col-md-8 control-label">Date:</label></p>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+            <input value="${store.hike.date}" name="hike[date]" class="form-control"  type="text">
+          </div>
+        </div>
+      </div>
+      <p><div class="form-group">
+        <label class="col-md-8 control-label">Trail(s):</label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+            <input value="${store.hike.trails}" name="hike[trails]" class="form-control"  type="text">
+          </div>
+        </div>
+      </div></p>
+      <p><div class="form-group">
+        <label class="col-md-8 control-label">Distance:</label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+            <input value="${store.hike.distance}" name="hike[distance]" class="form-control"  type="text">
+          </div>
+        </div>
+      </div></p>
+      <p><div class="form-group">
+        <label class="col-md-8 control-label">Elevation:</label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+            <input value="${store.hike.elevation}" name="hike[elevation]" class="form-control"  type="text">
+          </div>
+        </div>
+      </div></p>
+      <p><div class="form-group">
+        <label class="col-md-8 control-label">Mountain(s):</label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+            <input value="${store.hike.mountainsClimbed}" name="hike[mountainsClimbed]" class="form-control"  type="text">
+          </div>
+        </div>
+      </div></p>
+      <p><div class="form-group">
+        <label class="col-md-8 control-label">Did you hike with someone?</label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+            <input value="${store.hike.hikedWith}" name="hike[hikedWith]" class="form-control"  type="text">
+          </div>
+        </div>
+      </div></p>
+      <p><div class="form-group">
+        <label class="col-md-8 control-label">Trail notes:</label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+            <input value="${store.hike.trailNotes}" name="hike[trailNotes]" class="form-control"  type="text">
+          </div>
+        </div>
+      </div></p>
+      <p>ID: ${store.hike._id}</p>
+      </div>
+      <div id="edit-fn-container">
+        <div class="input-group-prepend" onclick="onEdit()">
+        <span class="input-group-text"><i class="fas fa-edit"></i></span></div>
+        <div class="input-group-prepend" id="delete">
+          <span class="input-group-text"><i class="fas fa-trash-alt"></i></span></div>
+      </div>
+  `)
+  $('#search-result-container').append(hikeHTML)
 }
 
 module.exports = {
@@ -65,5 +146,6 @@ module.exports = {
   onIndexSuccess,
   onIndexFailure,
   onShowByIdSuccess,
-  onShowByIdFailure
+  onShowByIdFailure,
+  onEditBtnSuccess
 }

@@ -21,12 +21,20 @@ $(() => {
   $('#search-container').hide()
   $('#newHike').hide()
   $('#index-container').hide()
-  $('search-result-container').hide()
+  $('#search-result-container').hide()
   // search functionality
   $('#search-by-id').on('submit', hikeEvents.onShowById)
   $('#mountain-search-btn').on('submit', hikeEvents.onShowByMountain)
   $('#trail-search-btn').on('submit', hikeEvents.onShowByTrail)
+  // edit functionality
+  $('#delete').on('click', onDelete)
+  $('#edit').on('click', hikeEvents.onEdit)
 })
+
+const onDelete = function () {
+  event.preventDefault()
+  console.log('hello')
+}
 
 const onSignUpBtnClick = function () {
   $('#signUp').show()

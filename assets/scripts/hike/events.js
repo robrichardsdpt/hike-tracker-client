@@ -45,7 +45,7 @@ const onEditBtn = function (event) {
 
 const onShowById = function (event) {
   event.preventDefault()
-  $('search-result-container').show()
+  $('#search-result-container').show()
   const form = event.target
   const data = getFormFields(form)
   const id = data.hike.id
@@ -62,6 +62,12 @@ const onShowByMountain = function (event) {
   event.preventDefault()
 }
 
+const onEdit = function (event) {
+  event.preventDefault()
+  console.log('hello')
+  hikeUi.onEditBtnSuccess()
+}
+
 module.exports = {
   onCreateHike,
   onIndexBtn,
@@ -70,5 +76,6 @@ module.exports = {
   onEditBtn,
   onShowById,
   onShowByTrail,
-  onShowByMountain
+  onShowByMountain,
+  onEdit
 }
