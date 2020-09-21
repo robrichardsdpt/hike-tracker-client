@@ -33,6 +33,7 @@ $(() => {
   $('#submit-edit-btn').hide()
   $('#cancel-edit-btn').hide()
   $('#submit-edit-btn').on('click', hikeEvents.onSubmitEdit)
+  $('#cancel-edit-btn').on('click', hikeEvents.onCancelEdit)
   $('#submit-delete-btn').hide()
   $('#cancel-delete-btn').hide()
   $('#submit-delete-btn').on('click', hikeEvents.onSubmitDelete)

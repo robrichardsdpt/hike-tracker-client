@@ -40,6 +40,7 @@ const onIndexFailure = function () {
 
 const onShowByIdSuccess = function (response) {
   $('#search-result').html('')
+  $('#edit-fn-container').show()
   console.log(response)
   store.hike = response.hike
   const hikeHTML = (`<div>
@@ -62,7 +63,8 @@ const onShowByIdFailure = function () {
 }
 
 const onEditBtnSuccess = function (response) {
-  $('#edit-form-div')
+  $('#edit-fn-btns').show()
+  $('#edit-form-div').html('')
   const hikeHTML = (`<div>
       <p><div class="form-group">
         <label class="col-md-8 control-label">Date:</label></p>

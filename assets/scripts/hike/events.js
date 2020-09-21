@@ -18,6 +18,8 @@ const onIndexBtn = function (event) {
   event.preventDefault()
   $('#newHike').hide()
   $('#index-container').show()
+  $('#search-container').hide()
+  $('#search-result-container').hide()
   hikeApi.getIndex()
     .then(hikeUi.onIndexSuccess)
     .catch(hikeUi.onIndexFailure)
@@ -36,6 +38,8 @@ const onShowBtn = function (event) {
   $('#newHike').hide()
   $('#index-container').hide()
   $('#search-container').show()
+  $('#search-result-container').hide()
+  $('#edit-fn-container').hide()
 }
 
 const onEditBtn = function (event) {
@@ -46,7 +50,9 @@ const onEditBtn = function (event) {
 
 const onShowById = function (event) {
   event.preventDefault()
+  $('#search-container').show()
   $('#search-result-container').show()
+  $('#edit-fn-container').show()
   const form = event.target
   const data = getFormFields(form)
   const id = data.hike.id
@@ -71,6 +77,7 @@ const onEdit = function (event) {
   $('#cancel-edit-btn').show()
   $('#delete').hide()
   hikeUi.onEditBtnSuccess()
+  $('#edit-form-div').show()
 }
 
 const onSubmitEdit = function (event) {
@@ -82,6 +89,15 @@ const onSubmitEdit = function (event) {
   hikeApi.editHike(data)
     .then(hikeUi.onSubmitEditSuccess)
     .catch(hikeUi.onSubmitEditFailure)
+}
+
+const onCancelEdit = function (event) {
+  event.preventDefault()
+  $('#edit').show()
+  $('#submit-edit-btn').hide()
+  $('#cancel-edit-btn').hide()
+  $('#delete').show()
+  $('#edit-form-div').hide()
 }
 
 const onDelete = function () {
@@ -117,5 +133,6 @@ module.exports = {
   onSubmitEdit,
   onDelete,
   onSubmitDelete,
-  onCancelDelete
+  onCancelDelete,
+  onCancelEdit
 }
