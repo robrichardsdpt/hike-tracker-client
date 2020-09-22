@@ -36,6 +36,7 @@ One of the most difficult parts of this project was the hiding and showing of ce
 6. json
 7. MongoDB
 8. Mongoose
+9. Express JS
 
 ### Unsolved Problems/Reach goals
 - Search functionality to include search by trail, mountain
