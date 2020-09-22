@@ -4,6 +4,7 @@ const hikeApi = require('./api')
 const hikeUi = require('./ui')
 const store = require('../store')
 
+// Handles creation of a hike submit
 const onCreateHike = function (event) {
   event.preventDefault()
   const form = event.target
@@ -13,6 +14,7 @@ const onCreateHike = function (event) {
     .catch(hikeUi.onCreateHikeFailure)
 }
 
+// Handles click for index
 const onIndexBtn = function (event) {
   event.preventDefault()
   $('#newHike').hide()
@@ -27,6 +29,7 @@ const onIndexBtn = function (event) {
     .catch(hikeUi.onIndexFailure)
 }
 
+// Handles click to bring up create hike form
 const onCreateBtn = function (event) {
   event.preventDefault()
   $('#newHike').show()
@@ -40,6 +43,7 @@ const onCreateBtn = function (event) {
   $('#sign-in-success').hide()
 }
 
+// Handles click to bring up show by ID form
 const onShowBtn = function (event) {
   event.preventDefault()
   $('#newHike').hide()
@@ -52,13 +56,7 @@ const onShowBtn = function (event) {
   $('#sign-in-success').hide()
 }
 
-const onEditBtn = function (event) {
-  event.preventDefault()
-  $('#newHike').hide()
-  $('#hikeIndex').hide()
-  $('#edit_success_message').hide()
-}
-
+// Handles show By ID submission of form
 const onShowById = function (event) {
   event.preventDefault()
   $('#edit_success_message').hide()
@@ -70,6 +68,7 @@ const onShowById = function (event) {
     .catch(hikeUi.onShowByIdFailure)
 }
 
+// Handles edit button click to bring up options
 const onEdit = function (event) {
   event.preventDefault()
   $('#edit').hide()
@@ -78,11 +77,11 @@ const onEdit = function (event) {
   $('#delete').hide()
   $('#editHike').show()
   $('#edit_success_message').hide()
-  hikeUi.onEditBtnSuccess()
   $('#editHikeContainer').show()
   $('#edit-form-div').show()
 }
 
+// Handles edit submission
 const onSubmitEdit = function (event) {
   event.preventDefault()
   const form = event.target
@@ -92,6 +91,7 @@ const onSubmitEdit = function (event) {
     .catch(hikeUi.onSubmitEditFailure)
 }
 
+// Handles cancel edit click
 const onCancelEdit = function (event) {
   event.preventDefault()
   $('#edit').show()
@@ -102,6 +102,7 @@ const onCancelEdit = function (event) {
   $('#editHike').hide()
 }
 
+// Handles click to bring up delete options
 const onDelete = function () {
   event.preventDefault()
   $('#edit_success_message').hide()
@@ -109,6 +110,7 @@ const onDelete = function () {
   $('#cancel-delete-btn').show()
 }
 
+// Handles delete request submission
 const onSubmitDelete = function () {
   event.preventDefault()
   $('#submit-delete-btn').hide()
@@ -118,6 +120,7 @@ const onSubmitDelete = function () {
     .catch(hikeUi.onSubmitDeleteFailure)
 }
 
+// Handles delete request cancel click
 const onCancelDelete = function () {
   event.preventDefault()
   $('#submit-delete-btn').hide()
@@ -129,7 +132,6 @@ module.exports = {
   onIndexBtn,
   onCreateBtn,
   onShowBtn,
-  onEditBtn,
   onShowById,
   onEdit,
   onSubmitEdit,

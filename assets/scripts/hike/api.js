@@ -2,6 +2,7 @@
 const config = require('./../config')
 const store = require('./../store')
 
+// Calls API for create hike requests
 const createHike = function (data) {
   return $.ajax({
     url: config.apiUrl + '/hikes',
@@ -13,6 +14,7 @@ const createHike = function (data) {
   })
 }
 
+// Calls API for getIndex requests
 const getIndex = function () {
   return $.ajax({
     url: config.apiUrl + '/hikes',
@@ -23,6 +25,7 @@ const getIndex = function () {
   })
 }
 
+// Calls API for showById requests
 const showById = function (hikeId) {
   return $.ajax({
     url: config.apiUrl + '/hikes/' + hikeId,
@@ -32,6 +35,8 @@ const showById = function (hikeId) {
     }
   })
 }
+
+// Calls API for editHike requests
 const editHike = function (data) {
   return $.ajax({
     url: config.apiUrl + '/hikes/' + store.hike._id,
@@ -43,6 +48,7 @@ const editHike = function (data) {
   })
 }
 
+// Calls API for deleteHike requests
 const deleteHike = function (id) {
   return $.ajax({
     url: config.apiUrl + '/hikes/' + id,

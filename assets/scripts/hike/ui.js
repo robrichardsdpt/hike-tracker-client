@@ -2,6 +2,7 @@
 const store = require('./../store')
 const hikeApi = require('./api')
 
+// Handles successful and failed hike creations
 const onCreateHikeSuccess = function (response) {
   $('#create_hike').trigger('reset')
   $('#success_message').show()
@@ -12,6 +13,7 @@ const onCreateHikeFailure = function () {
   $('#failure_message').show()
 }
 
+// Handles index success and failure
 const onIndexSuccess = function (response) {
   $('#scrollable-index').html('')
   // loop through API response data
@@ -33,17 +35,19 @@ const onIndexSuccess = function (response) {
     $('#scrollable-index').append(hikeHTML)
   })
 }
-
 const onIndexFailure = function () {
   $('index-container').text('failed to find index')
 }
 
+// Handles ShowById success
 const onShowByIdSuccess = function (response) {
   $('#search-result-failed-container').hide()
+  $('#search-result-delete').hide()
   $('#search-result').html('')
   $('#search-container').show()
   $('#search-result-container').show()
   $('#edit-fn-container').show()
+  // Stores the response for later use for update and delete purposes
   store.hike = response.hike
   const hikeHTML = (`<div>
       <h4>Date: ${response.hike.date}</h4>
@@ -56,10 +60,11 @@ const onShowByIdSuccess = function (response) {
       <p>Trail Notes: ${response.hike.trailNotes}</p>
       <p>ID: ${response.hike._id}</p>
       </div>
-
   `)
   $('#search-result').append(hikeHTML)
   $('#search-result').show()
+  // Uses stored value to populate hidden edit form so that the user does not have to type it in again to edit
+  // This allows the user to not have to retype information if they do not want to change a certain value
   $('#date-edit').attr('value', store.hike.date)
   $('#trails-edit').attr('value', store.hike.trails)
   $('#distance-edit').attr('value', store.hike.distance)
@@ -73,6 +78,7 @@ const onShowByIdSuccess = function (response) {
   $('#delete').show()
 }
 
+// Handles failed showById requests
 const onShowByIdFailure = function () {
   $('#search-container').show()
   $('#search-result-container').hide()
@@ -82,30 +88,38 @@ const onShowByIdFailure = function () {
   $('#search-result-failed-container').html('<div class="alert alert-failure" id="sign-up-failure">Unable to find hike. Please check if the id is correct!<i class="far fa-thumbs-down"></i></div>')
 }
 
+// Handles succesful edit requests
 const onSubmitEditSuccess = function (response) {
   $('#edit-fn-btns').show()
   $('#editHike').hide()
+  // uses stored id from showById request
+  // Possible because the only way to access edit is following recent showById
   const id = store.hike._id
   $('#edit-fn-container').show()
   $('#edit').show()
   $('#delete').show()
   $('#edit_success_message').show()
+  // updates the previous search based on updates made in real time
   hikeApi.showById(id)
     .then(onShowByIdSuccess)
     .catch(onShowByIdFailure)
 }
 
+// Handles edit submission failures
 const onSubmitEditFailure = function () {
   $('#edit-result-failed').html('<p>Unable to edit hike.  Check required fields and data.</p>')
 }
 
+// Handles successful deletion a log entry
 const onSubmitDeleteSuccess = function () {
   $('#search-result-delete').html('<p>Successfully deleted hike</p>')
+  $('#search-result-delete').show()
   $('#search-result').hide()
   $('#edit').hide()
   $('#delete').hide()
 }
 
+// Handles delete failures
 const onSubmitDeleteFailure = function () {
   $('#search-result-delete').html('<p>Unable to delete hike</p>')
 }
