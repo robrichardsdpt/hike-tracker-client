@@ -44,7 +44,6 @@ const onShowByIdSuccess = function (response) {
   $('#search-container').show()
   $('#search-result-container').show()
   $('#edit-fn-container').show()
-  console.log(response)
   store.hike = response.hike
   const hikeHTML = (`<div>
       <h4>Date: ${response.hike.date}</h4>
@@ -90,13 +89,14 @@ const onSubmitEditSuccess = function (response) {
   $('#edit-fn-container').show()
   $('#edit').show()
   $('#delete').show()
+  $('#edit_success_message').show()
   hikeApi.showById(id)
     .then(onShowByIdSuccess)
     .catch(onShowByIdFailure)
 }
 
 const onSubmitEditFailure = function () {
-  console.log('error')
+  $('#edit-result-failed').html('<p>Unable to edit hike.  Check required fields and data.</p>')
 }
 
 const onSubmitDeleteSuccess = function () {

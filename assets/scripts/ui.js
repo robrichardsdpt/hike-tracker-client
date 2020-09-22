@@ -3,7 +3,8 @@ const store = require('./store')
 
 // Handles response of API to sign up
 const onSignUpSuccess = function (response) {
-  $('#message').text(`Thanks for signing up ${response.user.email}!`)
+  $('#sign-up-success').show()
+  $('#sign-up-failure').hide()
   $('#sign-up-form').trigger('reset')
 }
 const onSignUpFailure = function () {
@@ -20,7 +21,6 @@ const onSignInSuccess = function (response) {
   $('#signUp').hide()
   $('#signIn').hide()
   $('#manage-hikes').show()
-  console.log(store.user.token)
 }
 const onSignInFailure = function () {
   $('#sign-in-failure').show()
@@ -28,17 +28,17 @@ const onSignInFailure = function () {
 
 // Handles API response to password change requests
 const onChangePasswordSuccess = function () {
-  $('#message').text('Changed password successfully')
+  $('#changepw_success_message').show()
   $('#change-password-form').trigger('reset')
 }
 const onChangePasswordFailure = function () {
-  $('#message').text('Failed to change password.  Please try again.')
+  $('#changepw_success_message').hide()
+  $('#changepw_failed_message').show()
   $('#change-password-form').trigger('reset')
 }
 
 // Handles API response to sign out request
 const onSignOutSuccess = function (response) {
-  $('#message').text('Signed out successfully')
   $('#signIn').show()
   $('#sign-out').hide()
   $('#change-password-form').hide()
@@ -48,9 +48,15 @@ const onSignOutSuccess = function (response) {
   $('#search-container').hide()
   $('#search-result-container').hide()
   $('#manage-hikes').hide()
+  $('#changepw_success_message').hide()
+  $('#changepw_failed_message').hide()
+  $('#signout_failed_message').hide()
+  $('#signout_success_message').show()
 }
 const onSignOutFailure = function () {
-  $('#message').text('You have failed to sign out.  Please try again.')
+  $('#changepw_success_message').hide()
+  $('#changepw_failed_message').hide()
+  $('#signout_failed_message').show()
 }
 
 module.exports = {

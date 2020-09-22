@@ -15,6 +15,8 @@
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     </head>
     <body>
+
+    <!--nav bar-->
       <div class ='nav'>
         <div class='logo col-4'>
           <i class="fas fa-mountain"></i>
@@ -40,7 +42,8 @@
                </div>
              </fieldset>
            </form>
-      <!-- Change PW-->
+
+        <!-- Change PW-->
           <form id="change-password-form">
             <fieldset>
              <div class="dropdown">
@@ -54,7 +57,7 @@
              </div>
            </fieldset>
          </form>
-  <!-- Sign Out-->
+      <!-- Sign Out-->
         <form id="sign-out">
           <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Sign out</button>
@@ -63,22 +66,25 @@
           </div>
         </form>
       </div>
-  </div>
-<!-- Sign In-->
-<div class="container" id="signIn">
-<div class="d-flex justify-content-center h-100">
-  <div class="card">
-    <div class="card-header">
-      <h3>Sign In</h3>
     </div>
-    <div class="card-body">
+    <div class="alert alert-success" id="changepw_success_message">Changed password successfully!! <i class="far fa-thumbs-up"></i></div>
+    <div class="alert alert-failure" id="changepw_failed_message">Failed to change password.  Please try again. <i class="far fa-thumbs-down"></i></div>
+    <div class="alert alert-success" id="signout_success_message">Signed out successfully!! <i class="far fa-thumbs-up"></i></div>
+    <div class="alert alert-failure" id="signout_failed_message">Failed to change sign out.  Please try again. <i class="far fa-thumbs-down"></i></div>
+  <!-- Sign In-->
+    <div class="container" id="signIn">
+      <div class="d-flex justify-content-center h-100">
+        <div class="card">
+          <div class="card-header">
+            <h3>Sign In</h3>
+          </div>
+        <div class="card-body">
       <form id="sign-in-form" >
         <div class="input-group form-group">
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-user"></i></span>
           </div>
           <input id="sign-in-email" type="email" name="credentials[email]" class="form-control" placeholder="email">
-
         </div>
         <div class="input-group form-group">
           <div class="input-group-prepend">
@@ -92,31 +98,31 @@
       </form>
     </div>
     <div class="alert alert-failure" id="sign-in-failure">Failed to sign-in.  Please check user/pw. <i class="far fa-thumbs-down"></i></div>
-    <div class="card-footer">
-      <div class="d-flex justify-content-center links">
+      <div class="card-footer">
+        <div class="d-flex justify-content-center links">
         Do not have an account?<input type="submit" value="Sign up" class="btn float-right login_btn" id="sign-up-btn">
-      </div>
-      <div class="d-flex justify-content-center">
+        </div>
+        <div class="d-flex justify-content-center">
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>
+
 <!-- Sign Up-->
-<div class="container" id="signUp">
-<div class="d-flex justify-content-center h-100">
-  <div class="sign-up-card">
-    <div class="card-header">
-      <h3>Sign Up</h3>
-    </div>
-    <div class="card-body">
-      <form id="sign-up-form">
+  <div class="container" id="signUp">
+    <div class="d-flex justify-content-center h-100">
+      <div class="sign-up-card">
+        <div class="card-header">
+          <h3>Sign Up</h3>
+        </div>
+      <div class="card-body">
+        <form id="sign-up-form">
         <div class="input-group form-group">
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-user"></i></span>
           </div>
           <input id="sign-up-email" type="email" name="credentials[email]" class="form-control" placeholder="email">
-
         </div>
         <div class="input-group form-group">
           <div class="input-group-prepend">
@@ -131,35 +137,34 @@
           <input id="sign-up-password_confirmation" type="password" name="credentials[password_confirmation]" class="form-control" placeholder="confirm password">
         </div>
         <div class="form-group">
-
           <input type="submit" value="Sign up" class="btn float-right login_btn">
         </div>
       </form>
     </div>
-
     <div class="card-footer">
       <div class="d-flex justify-content-center links">
         <br>
         Have an account already?<input type="submit" value="Sign in" class="btn float-right login_btn" id="log-in-btn">
       </div>
       <div class="d-flex justify-content-center">
-      </div>
-      </div>
-  <div class="alert alert-failure" id="sign-up-failure">Failed to sign-up.<i class="far fa-thumbs-down"></i></div>
+    </div>
+  </div>
+    <div class="alert alert-failure" id="sign-up-failure">Failed to sign-up. <i class="far fa-thumbs-down"></i></div>
+    <div class="alert alert-success" id="sign-up-success">You are all signed up! <i class="far fa-thumbs-up"></i></div>
     </div>
   </div>
 </div>
 
-<!-- New hike form -->
-<div class="container create-card" id="newHike">
-  <div>
-  <form class="well form-horizontal" id="create_hike">
-    <fieldset>
-<!-- Form Name -->
-<div class="card-header">
-      <legend><center><h2><b>Add a new hike</b></h2></center></legend><br>
-    </div>
-<!-- Text input-->
+  <!-- New hike form -->
+  <div class="container create-card" id="newHike">
+    <div>
+      <form class="well form-horizontal" id="create_hike">
+      <fieldset>
+  <!-- Form Name -->
+        <div class="card-header">
+          <legend><center><h2><b>Add a new hike</b></h2></center></legend><br>
+        </div>
+  <!-- Create input for Date-->
       <div class="form-group">
         <label class="col-md-8 control-label">Date (required):</label>
         <div class="col-md-8 inputGroupContainer">
@@ -170,8 +175,7 @@
         </div>
       </div>
 
-<!-- Text input-->
-
+  <!-- Create input for Trails-->
       <div class="form-group">
         <label class="col-md-8 control-label">Trail(s) (required):</label>
          <div class="col-md-8 inputGroupContainer">
@@ -181,7 +185,8 @@
            </div>
           </div>
         </div>
-<!-- Text input-->
+
+<!-- Create input for Distance-->
         <div class="form-group">
           <label class="col-md-8 control-label">Distance hiked(miles):</label>
           <div class="col-md-8 inputGroupContainer">
@@ -191,7 +196,8 @@
             </div>
           </div>
         </div>
-<!-- Text input-->
+
+<!-- Create input for Elevation-->
         <div class="form-group">
           <label class="col-md-8 control-label" >Elevation gain(in feet):</label>
           <div class="col-md-8 inputGroupContainer">
@@ -201,7 +207,8 @@
            </div>
           </div>
         </div>
-<!-- Text input-->
+
+<!-- Create input for time taken-->
         <div class="form-group">
           <label class="col-md-8 control-label" >Time taken(in hours:minutes)</label>
           <div class="col-md-8 inputGroupContainer">
@@ -211,7 +218,8 @@
             </div>
           </div>
         </div>
-<!-- Text input-->
+
+<!-- Create input for mountains-->
       <div class="form-group">
         <label class="col-md-8 control-label">Mountain(s) climbed:</label>
         <div class="col-md-8 inputGroupContainer">
@@ -222,7 +230,7 @@
         </div>
       </div>
 
-<!-- Text input-->
+<!-- Create input for partner-->
       <div class="form-group">
         <label class="col-md-8 control-label">Did you hike with someone?:</label>
         <div class="col-md-8 inputGroupContainer">
@@ -232,7 +240,8 @@
          </div>
         </div>
       </div>
-<!-- Text input-->
+
+<!-- Create input for notes-->
       <div class="form-group">
         <label class="col-md-8 control-label">Trail notes:</label>
         <div class="col-md-8 inputGroupContainer">
@@ -243,11 +252,10 @@
         </div>
       </div>
 
-
-<!-- Success message -->
+<!-- Create Success/Failure message -->
       <div class="alert alert-success" id="success_message">Success!! <i class="far fa-thumbs-up"></i></div>
       <div class="alert alert-failure" id="failure_message">Failed to create hike. Check to make sure you filled out required fields and data is correct. <i class="far fa-thumbs-down"></i></div>
-<!-- Button -->
+<!-- Create Button -->
       <div class="form-group">
         <label class="col-md-4 control-label"></label>
         <input type="submit" value="Submit" class="btn float-right submit-create-btn">
@@ -255,9 +263,9 @@
       </fieldset>
     </form>
     </div>
+  </div>
 
   <!-- Index-->
-    </div>
   <div class = "container index-card" id="index-container">
     <div class="scrollable-index" id="scrollable-index"></div>
   </div>
@@ -277,6 +285,8 @@
           </div>
         </div>
       </form>
+
+    <!--Search by trail-->
     <div class="form-group">
       <label class="col-md-4 control-label">Trail(s):</label>
        <div class="inputGroupContainer">
@@ -287,6 +297,8 @@
          </div>
         </div>
       </div>
+
+      <!--Search by mountain-->
     <div class="form-group">
       <label class="col-md-4 control-label">Mountain(s):</label>
         <div class="inputGroupContainer">
@@ -299,20 +311,22 @@
       </div>
     </div>
 
+    <!--Search results-->
     <div class="container search-result-card" id="search-result-container">
       <div class="container search-result" id="search-result"></div>
       <div class="container search-result-delete" id="search-result-delete"></div>
+      <div class="alert alert-success" id="edit_success_message">Success!! <i class="far fa-thumbs-up"></i></div>
 
       <!-- Edit hike form -->
-      <div id="editHikeContainer">
-      <div class="container edit-card" id="editHike">
-        <div>
-        <form class="well form-horizontal" id="edit_hike">
-          <fieldset>
-            <div class="card-header">
+        <div id="editHikeContainer">
+          <div class="container edit-card" id="editHike">
+            <div>
+              <form class="well form-horizontal" id="edit_hike">
+              <fieldset>
+                <div class="card-header">
                   <legend><center><h2><b>Edit your hike</b></h2></center></legend><br>
                 </div>
-
+        <!--Edit Date info-->
                   <div class="form-group">
                     <label class="col-md-8 control-label">Date (required):</label></p>
                     <div class="col-md-8 inputGroupContainer">
@@ -323,6 +337,7 @@
                     </div>
                   </div>
 
+          <!--Edit Trails info-->
                   <div class="form-group">
                     <label class="col-md-8 control-label">Trail(s) (required):</label>
                     <div class="col-md-8 inputGroupContainer">
@@ -333,6 +348,7 @@
                     </div>
                   </div>
 
+          <!--Edit Distance info-->
                   <div class="form-group">
                     <label class="col-md-8 control-label">Distance (in miles):</label>
                     <div class="col-md-8 inputGroupContainer">
@@ -343,6 +359,7 @@
                     </div>
                   </div>
 
+          <!--Edit Elevation info-->
                   <div class="form-group">
                     <label class="col-md-8 control-label">Elevation (in ft):</label>
                     <div class="col-md-8 inputGroupContainer">
@@ -353,6 +370,8 @@
                     </div>
                   </div>
 
+
+          <!--Edit timeTaken info-->
                   <div class="form-group">
                     <label class="col-md-8 control-label" >Time taken(in hours:minutes)</label>
                     <div class="col-md-8 inputGroupContainer">
@@ -363,6 +382,7 @@
                     </div>
                   </div>
 
+          <!--Edit Mountains info-->
                 <div class="form-group">
                   <label class="col-md-8 control-label">Mountain(s):</label>
                     <div class="col-md-8 inputGroupContainer">
@@ -373,6 +393,7 @@
                     </div>
                   </div>
 
+            <!--Edit Partner info-->
                   <div class="form-group">
                     <label class="col-md-8 control-label">Did you hike with someone?</label>
                     <div class="col-md-8 inputGroupContainer">
@@ -383,6 +404,7 @@
                     </div>
                   </div>
 
+            <!--Edit Notes info-->
                   <div class="form-group">
                     <label class="col-md-8 control-label">Trail notes:</label>
                     <div class="col-md-8 inputGroupContainer">
@@ -393,10 +415,6 @@
                     </div>
                   </div>
                   <p id='edit-id'></p>
-
-
-      <!-- Success message -->
-            <div class="alert alert-success" id="edit_success_message">Success!! <i class="far fa-thumbs-up"></i></div>
 
       <!-- Button -->
             <div class="input-group-prepend submit" id="edit-fn-btns">
@@ -413,7 +431,7 @@
       </form>
     </div>
 
-
+<!--Pre edit and delete buttons-->
     </div>
       <div id="edit-fn-container">
         <div class="input-group-prepend">
@@ -425,11 +443,11 @@
             <label class="col-md-4 control-label"></label>
             <input type="submit" value="Cancel" class="btn float-right submit-create-btn" id="cancel-delete-btn">
             <input type="submit" value="Delete?" class="btn float-right submit-create-btn" id="submit-delete-btn">
-
       </div>
     </div>
   </div>
-
+<!--Sear and edit fails-->
 <div class="container search-result-failed-card" id="search-result-failed-container"></div>
+<div class="container edit-result-failed-card" id="edit-result-failed-container"></div>
   </body>
 </html>

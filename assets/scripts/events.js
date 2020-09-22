@@ -10,7 +10,8 @@ const onSignUp = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
+  $('#signout_success_message').hide()
+  $('#signout_failed_message').hide()
   api.signUp(data)
     .then(ui.onSignUpSuccess)
     .catch(ui.onSignUpFailure)
@@ -21,7 +22,8 @@ const onSignIn = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
+  $('#signout_success_message').hide()
+  $('#signout_failed_message').hide()
   api.signIn(data)
     .then(ui.onSignInSuccess)
     .catch(ui.onSignInFailure)
@@ -30,6 +32,7 @@ const onSignIn = function (event) {
 // Handles change password click and sends information to API
 const onChangePassword = function (event) {
   event.preventDefault()
+  $('#changepw_failed_message').hide()
   const form = event.target
   const data = getFormFields(form)
   api.changePassword(data)

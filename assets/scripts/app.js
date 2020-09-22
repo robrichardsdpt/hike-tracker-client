@@ -8,11 +8,16 @@ $(() => {
   $('#sign-up-btn').on('click', onSignUpBtnClick)
   $('#log-in-btn').on('click', onLoginBtnClick)
   $('#change-password-form').hide()
+  $('#changepw_success_message').hide()
+  $('#changepw_failed_message').hide()
+  $('#signout_success_message').hide()
+  $('#signout_failed_message').hide()
   $('#sign-out').hide()
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
   $('#sign-in-failure').hide()
   $('#sign-up-failure').hide()
+  $('#sign-up-success').hide()
   $('#change-password-form').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#create_hike').on('submit', hikeEvents.onCreateHike)
@@ -26,6 +31,7 @@ $(() => {
   $('#search-result-container').hide()
   $('#editHike').hide()
   $('#manage-hikes').hide()
+  $('#edit_success_message').hide()
   // search functionality
   $('#search-by-id').on('submit', hikeEvents.onShowById)
   $('#mountain-search-btn').on('submit', hikeEvents.onShowByMountain)
@@ -52,16 +58,5 @@ const onSignUpBtnClick = function () {
 const onLoginBtnClick = function () {
   $('#signIn').show()
   $('#signUp').hide()
+  $('#sign-up-success').hide()
 }
-// $(()=> {
-//   $('#change-password-form').hide()
-//   $('#sign-out').hide()
-//   $('#sign-up-form').hide()
-//   $('#sign-up-btn').on('click', authEvents.onBtnForSignUpClick)
-//   // $('#sign-up-form').on('submit', authEvents.onSignUp)
-//   // $('#sign-in-form').on('submit', authEvents.onSignIn)
-//   // $('#change-password-form').on('submit', authEvents.onChangePassword)
-//   // $('#sign-out').on('submit', authEvents.onSignOut) // do I refresh the site?
-//   // $('#new-game').on('submit', authEvents.onNewGame)
-//   // $('.box').on('click', authEvents.onCellClick)
-// })

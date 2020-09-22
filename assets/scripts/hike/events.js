@@ -8,7 +8,6 @@ const onCreateHike = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
   hikeApi.createHike(data)
     .then(hikeUi.onCreateHikeSuccess)
     .catch(hikeUi.onCreateHikeFailure)
@@ -20,6 +19,8 @@ const onIndexBtn = function (event) {
   $('#index-container').show()
   $('#search-container').hide()
   $('#search-result-container').hide()
+  $('#changepw_success_message').hide()
+  $('#changepw_failed_message').hide()
   hikeApi.getIndex()
     .then(hikeUi.onIndexSuccess)
     .catch(hikeUi.onIndexFailure)
@@ -33,6 +34,8 @@ const onCreateBtn = function (event) {
   $('#success_message').hide()
   $('#failure_message').hide()
   $('#search-result-container').hide()
+  $('#changepw_success_message').hide()
+  $('#changepw_failed_message').hide()
 }
 
 const onShowBtn = function (event) {
@@ -42,19 +45,20 @@ const onShowBtn = function (event) {
   $('#search-container').show()
   $('#search-result-container').hide()
   $('#edit-fn-container').hide()
+  $('#changepw_success_message').hide()
+  $('#changepw_failed_message').hide()
 }
 
 const onEditBtn = function (event) {
   event.preventDefault()
   $('#newHike').hide()
   $('#hikeIndex').hide()
+  $('#edit_success_message').hide()
 }
 
 const onShowById = function (event) {
   event.preventDefault()
-  // $('#edit-fn-container').show()
-  // $('#search-container').show()
-  // $('#search-result-container').show()
+  $('#edit_success_message').hide()
   const form = event.target
   const data = getFormFields(form)
   const id = data.hike.id
@@ -73,12 +77,12 @@ const onShowByMountain = function (event) {
 
 const onEdit = function (event) {
   event.preventDefault()
-  console.log('hello')
   $('#edit').hide()
   $('#submit-edit-btn').show()
   $('#cancel-edit-btn').show()
   $('#delete').hide()
   $('#editHike').show()
+  $('#edit_success_message').hide()
   hikeUi.onEditBtnSuccess()
   $('#editHikeContainer').show()
   $('#edit-form-div').show()
@@ -88,8 +92,6 @@ const onSubmitEdit = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
-  console.log(store.hike._id)
   hikeApi.editHike(data)
     .then(hikeUi.onSubmitEditSuccess)
     .catch(hikeUi.onSubmitEditFailure)
@@ -107,7 +109,7 @@ const onCancelEdit = function (event) {
 
 const onDelete = function () {
   event.preventDefault()
-  console.log('hello')
+  $('#edit_success_message').hide()
   $('#submit-delete-btn').show()
   $('#cancel-delete-btn').show()
 }
