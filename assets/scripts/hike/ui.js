@@ -42,6 +42,7 @@ const onIndexFailure = function () {
 // Handles ShowById success
 const onShowByIdSuccess = function (response) {
   $('#search-result-failed-container').hide()
+  $('#search-by-id').trigger('reset')
   $('#search-result-delete').hide()
   $('#search-result').html('')
   $('#search-container').show()

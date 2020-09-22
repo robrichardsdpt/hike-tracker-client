@@ -52,6 +52,8 @@ const onSignOutSuccess = function (response) {
   $('#changepw_failed_message').hide()
   $('#signout_failed_message').hide()
   $('#signout_success_message').show()
+  $('#create_hike').trigger('reset')
+  $('#search-by-id').trigger('reset')
 }
 const onSignOutFailure = function () {
   $('#changepw_success_message').hide()
