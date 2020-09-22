@@ -21,26 +21,28 @@ The delete functionality also uses the search by ID.  Since both functions can o
 One of the most difficult parts of this project was the hiding and showing of certain buttons, divs, and elements on the page at certain times.  The update function was by far the most challenging, due to the significant amounts of buttons and divs that were involved in making the page function the way that I wanted it to function.  Cleaning this up was quite difficult.  Also, adding in responses to user auth requests were a little challenging due to the size of the cards.
 
 ### User Stories
-1. As a user, I want to be able to sign in to my own secure account so that I can track my own hikes.
-2. As a user, I want to be able to track the mountains I have climbed and take notes on them.
-3. As a user, I would like to save all of my data and return to it later so that I can fill out applications for patches.
-4. As a user, I would like to modify any input at a later date, so that I do not have to do it all at once.
-5. As a user, I want to be able to look up previous trail notes I took and data recorded so I can refer to this information when recommending hikes to others.
+    1. As a user, I want to be able to sign in to my own secure account so that I can track my own hikes.
+    2. As a user, I want to be able to track the mountains I have climbed and take notes on them.
+    3. As a user, I would like to save all of my data and return to it later so that I can fill out applications for patches.
+    4. As a user, I would like to modify any input at a later date, so that I do not have to do it all at once.
+    5. As a user, I want to be able to look up previous trail notes I took and data recorded so I can refer to this information when recommending hikes to others.
 
 ### Technologies used
-1. html
-2. JavaScript
-3. CSS/sass
-4. jquery
-5. Bootstrap
-6. json
-7. MongoDB
-8. Mongoose
-9. Express JS
+    1. html
+    2. JavaScript
+    3. CSS/sass
+    4. jquery
+    5. Bootstrap
+    6. json
+    7. MongoDB
+    8. Mongoose
+    9. Express JS
+    10. Passportjs
+    11. Bcrypt
 
 ### Unsolved Problems/Reach goals
-- Search functionality to include search by trail, mountain
-- Statistics and other data tracking methods (filling in mountains into lists to show user how many more they need to accomplish goals)
+    - Search functionality to include search by trail, mountain
+    - Statistics and other data tracking methods (filling in mountains into lists to show user how many more they need to accomplish goals)
 
 ## Images
 ![wireframe](https://imgur.com/a/ylWV6av)
