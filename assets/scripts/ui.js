@@ -7,7 +7,7 @@ const onSignUpSuccess = function (response) {
   $('#sign-up-form').trigger('reset')
 }
 const onSignUpFailure = function () {
-  $('#message').text('Sign up failed try again')
+  $('#sign-up-failure').show()
 }
 
 // Handles API response to sign in
@@ -22,7 +22,7 @@ const onSignInSuccess = function (response) {
   console.log(store.user.token)
 }
 const onSignInFailure = function () {
-  $('#message').text('Sign in failed.  Please try again')
+  $('#sign-in-failure').show()
 }
 
 // Handles API response to password change requests
@@ -41,6 +41,7 @@ const onSignOutSuccess = function (response) {
   $('#signIn').show()
   $('#sign-out').hide()
   $('#change-password-form').hide()
+  $('.alert-failure').hide()
 }
 const onSignOutFailure = function () {
   $('#message').text('You have failed to sign out.  Please try again.')

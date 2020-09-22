@@ -37,6 +37,23 @@ html, body {
   background-color: rgba(0,0,0,0.5);
 }
 
+.card-body {
+  margin-bottom: auto;
+  padding-bottom: 50px;
+}
+
+.sign-up-card {
+  height: 370px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.card-footer {
+  height: auto;
+}
+
 .search-card {
   height: auto;
   margin-top: auto;
@@ -100,6 +117,7 @@ input:focus {
   color: black;
   background-color: #FFC312;
   width: 100px;
+  height: 2.5rem;
 }
 
 .submit-create-btn {
@@ -160,4 +178,12 @@ input:focus {
   display: flex;
   justify-content: flex-end;
   padding: 10px;
+}
+.alert-failure {
+  background-color: rgba(256,0,0,0.6);
+  color: white;
+}
+
+#log-in-btn {
+  align-self: flex-end;
 }

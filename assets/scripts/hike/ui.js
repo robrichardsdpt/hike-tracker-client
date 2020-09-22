@@ -5,15 +5,14 @@ const hikeApi = require('./api')
 const onCreateHikeSuccess = function (response) {
   $('#create_hike').trigger('reset')
   $('#success_message').show()
+  $('#failure_message').hide()
 }
 const onCreateHikeFailure = function () {
-  $('#message').text('Create hike failed.  Please try again')
+  $('#success_message').hide()
+  $('#failure_message').show()
 }
 
 const onIndexSuccess = function (response) {
-  // $('#message').text(response.hikes.hike)
-  // console.log(response)
-  // console.log(response.hikes)
   $('#scrollable-index').html('')
   // loop through API response data
   response.hikes.forEach(hike => {
@@ -30,7 +29,7 @@ const onIndexSuccess = function (response) {
       <p>ID: ${hike._id}</p>
       <br>
     `)
-    // append bookHTML to our book-display element
+    // append hikeHTML to hike-display element
     $('#scrollable-index').append(hikeHTML)
   })
 }
@@ -40,7 +39,10 @@ const onIndexFailure = function () {
 }
 
 const onShowByIdSuccess = function (response) {
+  $('#search-result-failed-container').hide()
   $('#search-result').html('')
+  $('#search-container').show()
+  $('#search-result-container').show()
   $('#edit-fn-container').show()
   console.log(response)
   store.hike = response.hike
@@ -58,6 +60,7 @@ const onShowByIdSuccess = function (response) {
 
   `)
   $('#search-result').append(hikeHTML)
+  $('#search-result').show()
   $('#date-edit').attr('value', store.hike.date)
   $('#trails-edit').attr('value', store.hike.trails)
   $('#distance-edit').attr('value', store.hike.distance)
@@ -67,10 +70,17 @@ const onShowByIdSuccess = function (response) {
   $('#partner-edit').attr('value', store.hike.hikedWith)
   $('#notes-edit').attr('value', store.hike.trailNotes)
   $('#edit-id').text(`ID: ${store.hike._id}`)
+  $('#edit').show()
+  $('#delete').show()
 }
 
 const onShowByIdFailure = function () {
-  $('index-container').text('Could not find hike by ID.  Please try again.')
+  $('#search-container').show()
+  $('#search-result-container').hide()
+  $('#edit-fn-container').hide()
+  $('#search-result').hide()
+  $('#search-result-failed-container').show()
+  $('#search-result-failed-container').html('<div class="alert alert-failure" id="sign-up-failure">Unable to find hike. Please check if the id is correct!<i class="far fa-thumbs-down"></i></div>')
 }
 
 const onSubmitEditSuccess = function (response) {
@@ -90,11 +100,14 @@ const onSubmitEditFailure = function () {
 }
 
 const onSubmitDeleteSuccess = function () {
-  $('#search-result').html('<p>Successfully deleted hike</p>')
+  $('#search-result-delete').html('<p>Successfully deleted hike</p>')
+  $('#search-result').hide()
+  $('#edit').hide()
+  $('#delete').hide()
 }
 
 const onSubmitDeleteFailure = function () {
-  console.log('error')
+  $('#search-result-delete').html('<p>Unable to delete hike</p>')
 }
 
 module.exports = {

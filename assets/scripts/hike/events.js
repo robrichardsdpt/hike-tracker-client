@@ -31,6 +31,8 @@ const onCreateBtn = function (event) {
   $('#index-container').hide()
   $('#search-container').hide()
   $('#success_message').hide()
+  $('#failure_message').hide()
+  $('#search-result-container').hide()
 }
 
 const onShowBtn = function (event) {
@@ -50,9 +52,9 @@ const onEditBtn = function (event) {
 
 const onShowById = function (event) {
   event.preventDefault()
-  $('#search-container').show()
-  $('#search-result-container').show()
-  $('#edit-fn-container').show()
+  // $('#edit-fn-container').show()
+  // $('#search-container').show()
+  // $('#search-result-container').show()
   const form = event.target
   const data = getFormFields(form)
   const id = data.hike.id
@@ -100,6 +102,7 @@ const onCancelEdit = function (event) {
   $('#cancel-edit-btn').hide()
   $('#delete').show()
   $('#edit-form-div').hide()
+  $('#editHike').hide()
 }
 
 const onDelete = function () {
@@ -111,6 +114,8 @@ const onDelete = function () {
 
 const onSubmitDelete = function () {
   event.preventDefault()
+  $('#submit-delete-btn').hide()
+  $('#cancel-delete-btn').hide()
   hikeApi.deleteHike(store.hike._id)
     .then(hikeUi.onSubmitDeleteSuccess)
     .catch(hikeUi.onSubmitDeleteFailure)

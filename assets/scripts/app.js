@@ -11,6 +11,8 @@ $(() => {
   $('#sign-out').hide()
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
+  $('#sign-in-failure').hide()
+  $('#sign-up-failure').hide()
   $('#change-password-form').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#create_hike').on('submit', hikeEvents.onCreateHike)
