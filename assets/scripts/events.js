@@ -2,8 +2,6 @@
 const getFormFields = require('./../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-// const gameEvents = require('./game')
-// const store = require('./store')
 
 // Handles sign on click and sends information to API
 const onSignUp = function (event) {
@@ -33,6 +31,7 @@ const onSignIn = function (event) {
 const onChangePassword = function (event) {
   event.preventDefault()
   $('#changepw_failed_message').hide()
+  $('#sign-in-success').hide()
   const form = event.target
   const data = getFormFields(form)
   api.changePassword(data)
@@ -40,7 +39,7 @@ const onChangePassword = function (event) {
     .catch(ui.onChangePasswordFailure)
 }
 
-// Handles sign out click by user and sends to API and to game.js file
+// Handles sign out click by user and sends to API
 const onSignOut = function (event) {
   event.preventDefault()
   const form = event.target

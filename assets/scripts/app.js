@@ -18,6 +18,7 @@ $(() => {
   $('#sign-in-failure').hide()
   $('#sign-up-failure').hide()
   $('#sign-up-success').hide()
+  $('#sign-in-success').hide()
   $('#change-password-form').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#create_hike').on('submit', hikeEvents.onCreateHike)
@@ -34,8 +35,6 @@ $(() => {
   $('#edit_success_message').hide()
   // search functionality
   $('#search-by-id').on('submit', hikeEvents.onShowById)
-  $('#mountain-search-btn').on('submit', hikeEvents.onShowByMountain)
-  $('#trail-search-btn').on('submit', hikeEvents.onShowByTrail)
   // edit functionality
   $('#delete').on('click', hikeEvents.onDelete)
   $('#edit').on('click', hikeEvents.onEdit)

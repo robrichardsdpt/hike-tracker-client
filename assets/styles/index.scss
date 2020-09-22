@@ -1,11 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
 
 html, body {
+  background-color: black;
   background-image: url('../../Waterfall.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
-  background-color: black;
 }
 
 .nav {
@@ -21,20 +21,22 @@ html, body {
   display: flex;
   justify-content: flex-end;
 }
-.dropdown-menu{
-  background: rgba(0,0,0,0.5);
+
+.dropdown-menu {
+  background: rgba(0, 0, 0, 0.5);
 }
+
 .container {
-  height: 100%;
   align-content: center;
+  height: 100%;
 }
 
 .card {
+  background-color: rgba(0, 0, 0, 0.5);
   height: 370px;
-  margin-top: auto;
   margin-bottom: auto;
+  margin-top: auto;
   width: 400px;
-  background-color: rgba(0,0,0,0.5);
 }
 
 .card-body {
@@ -43,11 +45,11 @@ html, body {
 }
 
 .sign-up-card {
+  background-color: rgba(0, 0, 0, 0.5);
   height: 370px;
-  margin-top: auto;
   margin-bottom: auto;
+  margin-top: auto;
   width: 400px;
-  background-color: rgba(0,0,0,0.5);
 }
 
 .card-footer {
@@ -55,29 +57,29 @@ html, body {
 }
 
 .search-card {
-  height: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  width: 400px;
   background-color: rgba(0,0,0,0.6);
   color: white;
+  height: auto;
+  margin-bottom: auto;
+  margin-top: auto;
+  width: 400px;
 }
 
 
 
 .create-card {
-  height: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  width: 600px;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
+  height: auto;
+  margin-bottom: auto;
+  margin-top: auto;
+  width: 600px;
 }
 
 span {
+  color: #FFC312;
   font-size: 60px;
   margin-left: 10px;
-  color: #FFC312;
 }
 
 span:hover {
@@ -90,16 +92,15 @@ span:hover {
 }
 
 .input-group-prepend span {
-  width: 50px;
   background-color: #FFC312;
+  border: 0;
   color: black;
-  border:0;
+  width: 50px;
 }
 
 input:focus {
-  outline: 0 0 0 0;
   box-shadow: 0 0 0 0;
-
+  outline: 0 0 0 0;
 }
 
 .remember {
@@ -107,33 +108,33 @@ input:focus {
 }
 
 .remember input {
-  width: 20px;
   height: 20px;
   margin-left: 15px;
   margin-right: 5px;
+  width: 20px;
 }
 
 .login_btn {
-  color: black;
   background-color: #FFC312;
-  width: 100px;
+  color: black;
   height: 2.5rem;
+  width: 100px;
 }
 
 .submit-create-btn {
-  color: black;
   background-color: #FFC312;
+  color: black;
   width: 100px;
 }
 
-.submit-create-btn:hover{
-  color: black;
+.submit-create-btn:hover {
   background-color: white;
+  color: black;
 }
 
 .login_btn:hover {
-  color: black;
   background-color: white;
+  color: black;
 }
 
 .links {
@@ -145,19 +146,19 @@ input:focus {
 }
 
 .index-card {
-  height: 90%;
-  margin-top: auto;
-  margin-bottom: auto;
-  width: 600px;
   background-color: rgba(0,0,0,0.6);
   color: white;
+  height: 90%;
+  margin-bottom: auto;
+  margin-top: auto;
+  width: 600px;
 }
 
 .scrollable-index {
+  background-color: rgba(0,0,0,0);
+  color: white;
   height: 100%;
   overflow: auto;
-  color: white;
-  background-color: rgba(0,0,0,0);;
 }
 
 #search-container {
@@ -165,13 +166,13 @@ input:focus {
 }
 
 .search-result-card {
-  height: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  width: 600px;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
+  height: auto;
+  margin-bottom: auto;
+  margin-top: auto;
   padding: 10x;
+  width: 600px;
 }
 
 #edit-fn-container {
@@ -179,6 +180,7 @@ input:focus {
   justify-content: flex-end;
   padding: 10px;
 }
+
 .alert-failure {
   background-color: rgba(256,0,0,0.6);
   color: white;

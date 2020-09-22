@@ -21,6 +21,7 @@ const onIndexBtn = function (event) {
   $('#search-result-container').hide()
   $('#changepw_success_message').hide()
   $('#changepw_failed_message').hide()
+  $('#sign-in-success').hide()
   hikeApi.getIndex()
     .then(hikeUi.onIndexSuccess)
     .catch(hikeUi.onIndexFailure)
@@ -36,6 +37,7 @@ const onCreateBtn = function (event) {
   $('#search-result-container').hide()
   $('#changepw_success_message').hide()
   $('#changepw_failed_message').hide()
+  $('#sign-in-success').hide()
 }
 
 const onShowBtn = function (event) {
@@ -47,6 +49,7 @@ const onShowBtn = function (event) {
   $('#edit-fn-container').hide()
   $('#changepw_success_message').hide()
   $('#changepw_failed_message').hide()
+  $('#sign-in-success').hide()
 }
 
 const onEditBtn = function (event) {
@@ -65,14 +68,6 @@ const onShowById = function (event) {
   hikeApi.showById(id)
     .then(hikeUi.onShowByIdSuccess)
     .catch(hikeUi.onShowByIdFailure)
-}
-
-const onShowByTrail = function (event) {
-  event.preventDefault()
-}
-
-const onShowByMountain = function (event) {
-  event.preventDefault()
 }
 
 const onEdit = function (event) {
@@ -136,8 +131,6 @@ module.exports = {
   onShowBtn,
   onEditBtn,
   onShowById,
-  onShowByTrail,
-  onShowByMountain,
   onEdit,
   onSubmitEdit,
   onDelete,

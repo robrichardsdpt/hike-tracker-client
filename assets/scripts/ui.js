@@ -14,7 +14,7 @@ const onSignUpFailure = function () {
 // Handles API response to sign in
 const onSignInSuccess = function (response) {
   store.user = response.user
-  $('#message').text('Thanks for signing in ' + response.user.email)
+  $('#sign-in-success').show()
   $('#sign-in-form').trigger('reset')
   $('#change-password-form').show()
   $('#sign-out').show()
