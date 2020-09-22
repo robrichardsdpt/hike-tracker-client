@@ -45,4 +45,4 @@ One of the most difficult parts of this project was the hiding and showing of ce
     - Statistics and other data tracking methods (filling in mountains into lists to show user how many more they need to accomplish goals)
 
 ## Images
-![wireframe](https://imgur.com/a/ylWV6av)
+![wireframe](https://user-images.githubusercontent.com/53917811/93946300-e6152d00-fd06-11ea-9b02-bfe171332076.jpg)
