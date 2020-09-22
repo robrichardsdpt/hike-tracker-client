@@ -8,8 +8,8 @@ const onSignUpSuccess = function (response) {
   $('#sign-up-form').trigger('reset')
 }
 const onSignUpFailure = function () {
-  $('#sign-up-failure').show()
   $('#sign-up-success').hide()
+  $('#sign-up-failure').show()
 }
 
 // Handles API response to sign in
