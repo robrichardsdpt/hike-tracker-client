@@ -9,6 +9,7 @@ const onSignUpSuccess = function (response) {
 }
 const onSignUpFailure = function () {
   $('#sign-up-failure').show()
+  $('#sign-up-success').hide()
 }
 
 // Handles API response to sign in
