@@ -19,6 +19,7 @@ const onSignInSuccess = function (response) {
   $('#sign-out').show()
   $('#signUp').hide()
   $('#signIn').hide()
+  $('#manage-hikes').show()
   console.log(store.user.token)
 }
 const onSignInFailure = function () {
@@ -46,6 +47,7 @@ const onSignOutSuccess = function (response) {
   $('#index-container').hide()
   $('#search-container').hide()
   $('#search-result-container').hide()
+  $('#manage-hikes').hide()
 }
 const onSignOutFailure = function () {
   $('#message').text('You have failed to sign out.  Please try again.')

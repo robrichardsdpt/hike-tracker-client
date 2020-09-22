@@ -1,130 +1,45 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# browser-template
+# Hike log
+This repo is the client side to a hiking log that allows a user access to his/her own individual, private database of hikes.  They can create, search for, update, and delete hikes that they have completed.  This can be a valuable resource for anyone trying to complete a hiking challenge, recommend hikes to others, or just keep a journal of their adventures.
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+## Planning Story
+In order to create a vision for my site, I first wanted to incorporate nature into the design.  Using Google and Bing as a reference for how impactful I wanted my picture to be, I decided that I would make it the background image of the web application.  I used a picture that I personally took at Mount Washington of a waterfall that had vibrant greens and a lot of action.
 
-## Installation
+After finishing the back end, I moved on to this repo, with the initial goals of authorization tasks.  I wanted the background image to be the thing that stood out the most, which directed my design to incorporate transparency in all containers that are presented to the user.  I wanted a navigation bar to have the title of the page and to help the user to navigate all functionality of the page once logged in.
 
-1. [Download](../../archive/master.zip) this template.
-    - **Do Not Fork And Clone**
-    - Click the "Clone or Download" button and select "Download Zip".
-1. Move to the `sei/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
-    your project.
-    - You can search for all instances of text in Atom by pressing
-    `commant + shift + f` on Mac or `ctrl + shift + f` on WSL.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
-1. Follow the instructions on your new repository's setup page. For details on
-   how to push to Github, refer to the section on Github entitled "…or push an existing
-   repository from the command line." Further documentation can be found [here](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/).
+After completing the authorization tasks, and ensuring that the front end was able to communicate with the back end, I moved on to Create. I chose to start here to allow me to create hikes easier by using the UI instead of having to do it through curl scripts.  This allowed me to build up an index which would allow me to test other functionailty of the website.  I was able to accomplish this with little difficulty.
 
-## Structure
+The next step was to build the index feature.  This served as a little more of a challenge for me.  Being able to take the object response from the API and print to the page in an index was at first a little complicated, but after reviewing content from previous labs, I was able to use the object to my advantage and append the information returned from the array of objects by using a forEach and .append of a new HTML element of each.
 
-### Scripts
+The search functionality was a challenging one.  To get the item by ID was not the difficult part.  What was more complicated was the amount of div's I had to use to have the buttons appear at the right time.  I also had an idea of potentially including search by trail and search by mountain.  For now, I have left the funcitonality at search by ID, which is what the API is built to do at it's current state.  Because my search is closely tied to the functionality of my update and delete, it made it a little bit more complicated.
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/app.js`](assets/scripts/app.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
+For my update, I wanted to make it easier for the user to edit the information of the hike without having to type in the ID again.  So following the search by ID, the user is given an option to edit or delete their log item.  This is done through a system of buttons to ensure that the user actually wants to do this.  Once the user searches for an item, that item is stored in the store document.  What also happens at this time, is that the information that is received from the search is populated into an edit form that is hidden on the page, but in the DOM.  When the user clicks the edit button, this form shows up with the auto populated information from the search, so that the user does not have to fill in any information that was already there, and can update only the items that he/she would like to update.  After submitting the edit, if the edit is successful, an API call is also made to ShowById to update the information real-time on the screen for the user.
 
-### Config
+The delete functionality also uses the search by ID.  Since both functions can only be accessed through the search by ID, they do not rely on user input of the ID directly.  This is accomplished once again through the store file, which sends the ID to the API for delete function once the appropriate sequence of buttons are clicked.
 
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`assets/scripts/config.js`](assets/scripts/config.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
+One of the most difficult parts of this project was the hiding and showing of certain buttons, divs, and elements on the page at certain times.  The update function was by far the most challenging, due to the significant amounts of buttons and divs that were involved in making the page function the way that I wanted it to function.  Cleaning this up was quite difficult.  Also, adding in responses to user auth requests were a little challenging due to the size of the cards.
 
-### Styles
+### User Stories
+1. As a user, I want to be able to sign in to my own secure account so that I can track my own hikes.
+2. As a user, I want to be able to track the mountains I have climbed and take notes on them.
+3. As a user, I would like to save all of my data and return to it later so that I can fill out applications for patches.
+4. As a user, I would like to modify any input at a later date, so that I do not have to do it all at once.
+5. As a user, I want to be able to look up previous trail notes I took and data recorded so I can refer to this information when recommending hikes to others.
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
+### Technologies used
+1. html
+2. JavaScript
+3. CSS/sass
+4. jquery
+5. Bootstrap
+6. json
+7. MongoDB
+8. Mongoose
 
-### Forms and Using `getFormFields`
+### Unsolved Problems/Reach goals
+- Search functionality to include search by trail, mountain
+- Statistics and other data tracking methods (filling in mountains into lists to show user how many more they need to accomplish goals)
 
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
-
-### Deployment
-
-To deploy a browser-template based SPA, run `grunt deploy`.
-
-## Adding Images
-
-To add images to your project, you must store them in the `public` directory.
-To use the image in HTML or CSS, write the path to the image like this:
-
-```html
-<img src="public/cat.jpg">
-```
-or
-```css
-#my-cool-div {
-  background-image: url('public/cat.jpg')
-}
-```
-
-Note that there's no `./` or `/` in front of `public/filename.jpg`.
-
-## Adding Fonts
-
-To add custom fonts to your app, you can either use a CDN like Google Fonts, or
-you can download the fonts and save them in the `public` directory. If you use
-the former method, follow the directions on the website providing the fonts.
-
-For local fonts, put the files in `public`, and then import and use them in a
-`.scss` file like this:
-
-```scss
-@font-face {
-  font-family: 'Nature Beauty';
-  src: url('public/Nature-Beauty.ttf') format('truetype');
-}
-
-.element-with-custom-font {
-  font-family: 'Nature Beauty';
-}
-```
-
-## Tasks
-
-Developers should run these often!
-
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
-- `grunt deploy`: builds and deploys master branch
-
-
-## Additional Resources
-
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
-
-## [License](LICENSE)
-
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
-# hike-tracker-client
+## Images
+![wireframe](https://imgur.com/a/ylWV6av)
