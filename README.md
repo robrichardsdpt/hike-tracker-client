@@ -41,9 +41,9 @@ One of the most difficult parts of this project was the hiding and showing of ce
     11. Bcrypt
 
 ### Links
-  [Depoloyed Frontend] (https://robrichardsdpt.github.io/hike-tracker-client/)
-  [Deployed Backend] (https://stormy-plains-65398.herokuapp.com/)
-  [Frontend Github Repository](https://github.com/robrichardsdpt/hike-tracker-client)
+  [Depoloyed Frontend](https://robrichardsdpt.github.io/hike-tracker-client/) <br>
+  [Deployed Backend](https://stormy-plains-65398.herokuapp.com/) <br>
+  [Frontend Github Repository](https://github.com/robrichardsdpt/hike-tracker-client)<br>
   [Backend Github Repository](https://github.com/robrichardsdpt/hike-tracker-backend)  
 
 ### Unsolved Problems/Reach goals
