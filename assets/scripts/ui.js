@@ -26,6 +26,7 @@ const onSignInSuccess = function (response) {
   $('#signIn').hide()
   $('#sign-up-failure').hide()
   $('#manage-hikes').show()
+  $('#sign-in-failure').hide()
 }
 const onSignInFailure = function () {
   $('#sign-in-failure').show()
