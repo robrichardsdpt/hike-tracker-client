@@ -41,10 +41,10 @@ One of the most difficult parts of this project was the hiding and showing of ce
     11. Bcrypt
 
 ### Links
-  Deployed Frontend: [Depoloyed Frontend] (https://robrichardsdpt.github.io/hike-tracker-client/)
-  Deployed Backend: [Deployed Backend] (https://stormy-plains-65398.herokuapp.com/)
-  Frontend Repository: [Frontend Github Repository](https://github.com/robrichardsdpt/hike-tracker-client)
-  Backend Repository: [Backend Github Repository](https://github.com/robrichardsdpt/hike-tracker-backend)
+  [Depoloyed Frontend] (https://robrichardsdpt.github.io/hike-tracker-client/)
+  [Deployed Backend] (https://stormy-plains-65398.herokuapp.com/)
+  [Frontend Github Repository](https://github.com/robrichardsdpt/hike-tracker-client)
+  [Backend Github Repository](https://github.com/robrichardsdpt/hike-tracker-backend)  
 
 ### Unsolved Problems/Reach goals
     - Search functionality to include search by trail, mountain
