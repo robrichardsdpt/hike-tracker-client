@@ -6,6 +6,8 @@ const onSignUpSuccess = function (response) {
   $('#sign-up-success').show()
   $('#sign-up-failure').hide()
   $('#sign-up-form').trigger('reset')
+  $('#sign-in-form').trigger('reset')
+  $('#sign-in-failure').hide()
 }
 const onSignUpFailure = function () {
   $('#sign-up-success').hide()
@@ -16,11 +18,13 @@ const onSignUpFailure = function () {
 const onSignInSuccess = function (response) {
   store.user = response.user
   $('#sign-in-success').show()
+  $('#sign-up-form').trigger('reset')
   $('#sign-in-form').trigger('reset')
   $('#change-password-form').show()
   $('#sign-out').show()
   $('#signUp').hide()
   $('#signIn').hide()
+  $('#sign-up-failure').hide()
   $('#manage-hikes').show()
 }
 const onSignInFailure = function () {
@@ -48,6 +52,7 @@ const onSignOutSuccess = function (response) {
   $('#index-container').hide()
   $('#search-container').hide()
   $('#search-result-container').hide()
+  $('#search-result-failed-container').hide()
   $('#manage-hikes').hide()
   $('#changepw_success_message').hide()
   $('#changepw_failed_message').hide()
