@@ -57,4 +57,8 @@ const onLoginBtnClick = function () {
   $('#signIn').show()
   $('#signUp').hide()
   $('#sign-up-success').hide()
+  $('#sign-up-failure').hide()
+  $('#sign-up-form').trigger('reset')
+  $('#sign-in-form').trigger('reset')
+  $('#sign-in-failure').hide()
 }
