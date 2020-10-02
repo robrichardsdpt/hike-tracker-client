@@ -82,6 +82,7 @@ const onEdit = function (event) {
   $('#edit_success_message').hide()
   $('#editHikeContainer').show()
   $('#edit-form-div').show()
+  $('#search-result-failed-container').hide()
 }
 
 // Handles edit submission
