@@ -35,12 +35,15 @@ const onSignInFailure = function () {
 // Handles API response to password change requests
 const onChangePasswordSuccess = function () {
   $('#changepw_success_message').show()
+  $('#changepw_failed_message').hide()
   $('#change-password-form').trigger('reset')
+  $('#search-result-failed-container').hide()
 }
 const onChangePasswordFailure = function () {
   $('#changepw_success_message').hide()
   $('#changepw_failed_message').show()
   $('#change-password-form').trigger('reset')
+  $('#search-result-failed-container').hide()
 }
 
 // Handles API response to sign out request
