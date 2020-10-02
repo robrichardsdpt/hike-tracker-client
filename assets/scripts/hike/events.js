@@ -28,6 +28,7 @@ const onIndexBtn = function (event) {
   $('#sign-in-success').hide()
   $('#search-result-failed-container').hide()
   $('#failure_message').hide()
+  $('#search-by-id').trigger('reset')
   hikeApi.getIndex()
     .then(hikeUi.onIndexSuccess)
     .catch(hikeUi.onIndexFailure)
@@ -47,6 +48,7 @@ const onCreateBtn = function (event) {
   $('#sign-in-success').hide()
   $('#search-result-failed-container').hide()
   $('#create_hike').trigger('reset')
+  $('#search-by-id').trigger('reset')
 }
 
 // Handles click to bring up show by ID form
@@ -62,6 +64,7 @@ const onShowBtn = function (event) {
   $('#sign-in-success').hide()
   $('#search-result-failed-container').hide()
   $('#failure_message').hide()
+  $('#search-by-id').trigger('reset')
 }
 
 // Handles show By ID submission of form
