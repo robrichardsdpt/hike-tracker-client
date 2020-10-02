@@ -33,6 +33,7 @@ const onIndexSuccess = function (response) {
     `)
     // append hikeHTML to hike-display element
     $('#scrollable-index').append(hikeHTML)
+    $('#search-result-failed-container').show()
   })
 }
 const onIndexFailure = function () {
@@ -77,6 +78,7 @@ const onShowByIdSuccess = function (response) {
   $('#edit-id').text(`ID: ${store.hike._id}`)
   $('#edit').show()
   $('#delete').show()
+  $('#search-result-failed-container').hide()
 }
 
 // Handles failed showById requests
