@@ -34,6 +34,7 @@ const onIndexSuccess = function (response) {
     // append hikeHTML to hike-display element
     $('#scrollable-index').append(hikeHTML)
     $('#search-result-failed-container').hide()
+    $('#failure_message').hide()
   })
 }
 const onIndexFailure = function () {

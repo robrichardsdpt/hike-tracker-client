@@ -9,6 +9,8 @@ const onCreateHike = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
+  $('#changepw_success_message').hide()
+  $('#changepw_failed_message').hide()
   hikeApi.createHike(data)
     .then(hikeUi.onCreateHikeSuccess)
     .catch(hikeUi.onCreateHikeFailure)
@@ -25,6 +27,7 @@ const onIndexBtn = function (event) {
   $('#changepw_failed_message').hide()
   $('#sign-in-success').hide()
   $('#search-result-failed-container').hide()
+  $('#failure_message').hide()
   hikeApi.getIndex()
     .then(hikeUi.onIndexSuccess)
     .catch(hikeUi.onIndexFailure)
@@ -43,6 +46,7 @@ const onCreateBtn = function (event) {
   $('#changepw_failed_message').hide()
   $('#sign-in-success').hide()
   $('#search-result-failed-container').hide()
+  $('#create_hike').trigger('reset')
 }
 
 // Handles click to bring up show by ID form
@@ -57,12 +61,16 @@ const onShowBtn = function (event) {
   $('#changepw_failed_message').hide()
   $('#sign-in-success').hide()
   $('#search-result-failed-container').hide()
+  $('#failure_message').hide()
 }
 
 // Handles show By ID submission of form
 const onShowById = function (event) {
   event.preventDefault()
   $('#edit_success_message').hide()
+  $('#changepw_success_message').hide()
+  $('#changepw_failed_message').hide()
+  $('#failure_message').hide()
   const form = event.target
   const data = getFormFields(form)
   const id = data.hike.id
@@ -83,11 +91,15 @@ const onEdit = function (event) {
   $('#editHikeContainer').show()
   $('#edit-form-div').show()
   $('#search-result-failed-container').hide()
+  $('#changepw_success_message').hide()
+  $('#changepw_failed_message').hide()
 }
 
 // Handles edit submission
 const onSubmitEdit = function (event) {
   event.preventDefault()
+  $('#changepw_success_message').hide()
+  $('#changepw_failed_message').hide()
   const form = event.target
   const data = getFormFields(form)
   hikeApi.editHike(data)
@@ -104,6 +116,8 @@ const onCancelEdit = function (event) {
   $('#delete').show()
   $('#edit-form-div').hide()
   $('#editHike').hide()
+  $('#changepw_success_message').hide()
+  $('#changepw_failed_message').hide()
 }
 
 // Handles click to bring up delete options
@@ -112,6 +126,8 @@ const onDelete = function () {
   $('#edit_success_message').hide()
   $('#submit-delete-btn').show()
   $('#cancel-delete-btn').show()
+  $('#changepw_success_message').hide()
+  $('#changepw_failed_message').hide()
 }
 
 // Handles delete request submission
@@ -119,6 +135,8 @@ const onSubmitDelete = function () {
   event.preventDefault()
   $('#submit-delete-btn').hide()
   $('#cancel-delete-btn').hide()
+  $('#changepw_success_message').hide()
+  $('#changepw_failed_message').hide()
   hikeApi.deleteHike(store.hike._id)
     .then(hikeUi.onSubmitDeleteSuccess)
     .catch(hikeUi.onSubmitDeleteFailure)
