@@ -64,6 +64,7 @@ const onSignOutSuccess = function (response) {
   $('#signout_success_message').show()
   $('#create_hike').trigger('reset')
   $('#search-by-id').trigger('reset')
+  $('#change-password-form').trigger('reset')
   $('#sign-in-success').hide()
 }
 const onSignOutFailure = function () {
