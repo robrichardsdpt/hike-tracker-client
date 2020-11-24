@@ -2,12 +2,15 @@
 const getFormFields = require('./../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('./store')
 
 // Handles sign on click and sends information to API
 const onSignUp = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
+  store.data = data
+  console.log(store.data)
   $('#signout_success_message').hide()
   $('#signout_failed_message').hide()
   api.signUp(data)

@@ -1,5 +1,7 @@
 'use strict'
 const store = require('./store')
+// const api = require('./api')
+// const ui = require('./ui')
 
 // Handles response of API to sign up
 const onSignUpSuccess = function (response) {
@@ -8,6 +10,9 @@ const onSignUpSuccess = function (response) {
   $('#sign-up-form').trigger('reset')
   $('#sign-in-form').trigger('reset')
   $('#sign-in-failure').hide()
+  // setTimeout(api.signIn(store.credentials.data), 3000)
+  //   .then(ui.onSignInSuccess)
+  //   .catch(ui.onSignInFailure)
 }
 const onSignUpFailure = function () {
   $('#sign-up-success').hide()
@@ -18,6 +23,7 @@ const onSignUpFailure = function () {
 const onSignInSuccess = function (response) {
   store.user = response.user
   $('#sign-in-success').show()
+  $('#sign-in-success').delay(2500).fadeOut('slow')
   $('#sign-up-form').trigger('reset')
   $('#sign-in-form').trigger('reset')
   $('#change-password-form').show()
@@ -30,11 +36,13 @@ const onSignInSuccess = function (response) {
 }
 const onSignInFailure = function () {
   $('#sign-in-failure').show()
+  $('#sign-in-failure').delay(2500).fadeOut('slow')
 }
 
 // Handles API response to password change requests
 const onChangePasswordSuccess = function () {
   $('#changepw_success_message').show()
+  $('#changepw_success_message').delay(2500).fadeOut('slow')
   $('#changepw_failed_message').hide()
   $('#change-password-form').trigger('reset')
   $('#search-result-failed-container').hide()
@@ -42,6 +50,7 @@ const onChangePasswordSuccess = function () {
 const onChangePasswordFailure = function () {
   $('#changepw_success_message').hide()
   $('#changepw_failed_message').show()
+  $('#changepw_failed_message').delay(2500).fadeOut('slow')
   $('#change-password-form').trigger('reset')
   $('#search-result-failed-container').hide()
 }
@@ -62,6 +71,7 @@ const onSignOutSuccess = function (response) {
   $('#changepw_failed_message').hide()
   $('#signout_failed_message').hide()
   $('#signout_success_message').show()
+  $('#signout_success_message').delay(2500).fadeOut('slow')
   $('#create_hike').trigger('reset')
   $('#search-by-id').trigger('reset')
   $('#change-password-form').trigger('reset')
@@ -71,6 +81,7 @@ const onSignOutFailure = function () {
   $('#changepw_success_message').hide()
   $('#changepw_failed_message').hide()
   $('#signout_failed_message').show()
+  $('#signout_failed_message').delay(2500).fadeOut('slow')
 }
 
 module.exports = {

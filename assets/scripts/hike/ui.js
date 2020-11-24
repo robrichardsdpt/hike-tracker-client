@@ -6,11 +6,13 @@ const hikeApi = require('./api')
 const onCreateHikeSuccess = function (response) {
   $('#create_hike').trigger('reset')
   $('#success_message').show()
+  $('#success_message').delay(2500).fadeOut('slow')
   $('#failure_message').hide()
 }
 const onCreateHikeFailure = function () {
   $('#success_message').hide()
   $('#failure_message').show()
+  $('#failure_message').delay(2500).fadeOut('slow')
 }
 
 // Handles index success and failure
@@ -19,8 +21,9 @@ const onIndexSuccess = function (response) {
   // loop through API response data
   response.hikes.forEach(hike => {
     // build HTML element with data
+    // <span class="input-group-text" id=${hike._id}><i class="fas fa-edit"></i></span>
     const hikeHTML = (`
-      <h4>Date: ${hike.date}</h4>
+      <div class='header'><h4>Date: ${hike.date}</h4></div>
       <p>Trail: ${hike.trails}</p>
       <p>Distance: ${hike.distance}</p>
       <p>Elevation: ${hike.elevation}</p>
@@ -104,6 +107,7 @@ const onSubmitEditSuccess = function (response) {
   $('#edit').show()
   $('#delete').show()
   $('#edit_success_message').show()
+  $('#edit_success_message').delay(2500).fadeOut('slow')
   // updates the previous search based on updates made in real time
   hikeApi.showById(id)
     .then(onShowByIdSuccess)
@@ -113,12 +117,14 @@ const onSubmitEditSuccess = function (response) {
 // Handles edit submission failures
 const onSubmitEditFailure = function () {
   $('#edit-result-failed').html('<p>Unable to edit hike.  Check required fields and data.</p>')
+  $('#edit-result-failed').delay(2500).fadeOut('slow')
 }
 
 // Handles successful deletion a log entry
 const onSubmitDeleteSuccess = function () {
   $('#search-result-delete').html('<p>Successfully deleted hike</p>')
   $('#search-result-delete').show()
+  $('#search-result-delete').delay(2500).fadeOut('slow')
   $('#search-result').hide()
   $('#edit').hide()
   $('#delete').hide()
