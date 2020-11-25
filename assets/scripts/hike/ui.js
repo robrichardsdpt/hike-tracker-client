@@ -94,6 +94,7 @@ const onShowByIdFailure = function () {
   $('#search-by-id').trigger('reset')
   $('#search-result-failed-container').show()
   $('#search-result-failed-container').html('<div class="alert alert-failure" id="sign-up-failure">Unable to find hike. Please check if the id is correct!<i class="far fa-thumbs-down"></i></div>')
+  $('#search-result-failed-container').delay(2500).fadeOut('slow')
 }
 
 // Handles succesful edit requests
