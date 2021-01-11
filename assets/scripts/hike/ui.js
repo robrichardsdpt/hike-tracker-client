@@ -34,15 +34,15 @@ const onIndexSuccess = function (response) {
     // build HTML element with data
     // <span class="input-group-text" id=${hike._id}><i class="fas fa-edit"></i></span>
     const hikeHTML = (`
-      <div class='header'><h4>Date: ${hike.date}</h4></div>
-      <p>Trail: ${hike.trails}</p>
-      <p>Distance: ${hike.distance}</p>
-      <p>Elevation: ${hike.elevation}</p>
-      <p>Time taken: ${hike.timeTaken}</p>
-      <p>Mountain: ${hike.mountainsClimbed}</p>
-      <p>Hiking partner(s): ${hike.hikedWith}</p>
-      <p>Trail Notes: ${hike.trailNotes}</p>
-      <p>ID: ${hike._id}</p>
+      <div class='header'><h4>Date:  ${hike.date}</h4></div>
+      <p>Trail:  ${hike.trails ? hike.trails : 'not reported'}</p>
+      <p>Distance:  ${hike.distance ? hike.distance : 'not reported'}</p>
+      <p>Elevation:  ${hike.elevation ? hike.elevation : 'not reported'}</p>
+      <p>Time taken:  ${hike.timeTaken ? hike.timeTaken : 'not reported'}</p>
+      <p>Mountain:  ${hike.mountainsClimbed  ? hike.mountainsClimbed : 'not reported'}</p>
+      <p>Hiking partner(s):  ${hike.hikedWith  ? hike.hikedWith : 'not reported'}</p>
+      <p>Trail Notes:  ${hike.trailNotes  ? hike.trailNotes : 'not reported'}</p>
+      <p>ID:  ${hike._id}</p>
       <br>
     `)
     // append hikeHTML to hike-display element
