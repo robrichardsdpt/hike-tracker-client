@@ -212,7 +212,7 @@
 
 <!-- Create input for time taken-->
         <div class="form-group">
-          <label class="col-md-8 control-label" >Time taken(in hours:minutes)</label>
+          <label class="col-md-8 control-label" >Time taken(in minutes)</label>
           <div class="col-md-8 inputGroupContainer">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="far fa-clock"></i></span>
@@ -270,6 +270,19 @@
   <!-- Index-->
   <div class = "container index-card" id="index-container">
     <div class = "stats"></div>
+    <form id="search-by-trails">
+      <div class="form-group">
+        <label class="col-md-4 control-label">Trail:</label>
+         <div class="inputGroupContainer">
+           <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-hiking"></i></span>
+            <input name="hike[trails]" placeholder="Trail" class="form-control"  type="text">
+            <input type="submit" value="Submit" class="btn float-right submit-create-btn" id="trail-search-btn">
+            <button class="btn float-right submit-create-btn" id="trail-search-btn-clear">Clear</button>
+          </div>
+          </div>
+        </div>
+      </form>
     <div class="scrollable-index" id="scrollable-index"></div>
   </div>
 
@@ -278,8 +291,8 @@
     <h3>Search by ID...</h3>
     <p>Use Index to find hike to Edit or Delete</p>
     <form id="search-by-id">
-    <div class="form-group">
-      <label class="col-md-4 control-label">ID:</label>
+      <div class="form-group">
+        <label class="col-md-4 control-label">ID:</label>
          <div class="inputGroupContainer">
            <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-fingerprint"></i></span>
@@ -353,7 +366,7 @@
 
           <!--Edit timeTaken info-->
                   <div class="form-group">
-                    <label class="col-md-8 control-label" >Time taken(in hours:minutes)</label>
+                    <label class="col-md-8 control-label" >Time taken(in minutes)</label>
                     <div class="col-md-8 inputGroupContainer">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="far fa-clock"></i></span>

@@ -67,6 +67,30 @@ const onShowBtn = function (event) {
   $('#search-by-id').trigger('reset')
 }
 
+const onShowByTrails = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  const trails = data.hike.trails
+  const filteredHikes = store.hikes.filter(hike => hike.trails.toLowerCase().includes(trails))
+  const hikeHTML = filteredHikes.map(hike => {
+     return (`<div>
+      <h4 class='header'>Date: ${hike.date}</h4>
+      <p>Trails: ${hike.trails ? hike.trails : 'not reported'}</p>
+      <p>Distance (in miles): ${hike.distance ? hike.distance : 'not reported'}</p>
+      <p>Elevation (in feet): ${hike.elevation ? hike.elevation : 'not reported'}</p>
+      <p>Time taken: ${hike.timeTaken ? hike.timeTaken : 'not reported'}</p>
+      <p>Mountain: ${hike.mountainsClimbed ? hike.mountainsClimbed : 'not reported'}</p>
+      <p>Hiking partner(s): ${hike.hikedWith ? hike.hikedWith : 'not reported'}</p>
+      <p>Trail Notes: ${hike.trailNotes ? hike.trailNotes : 'not reported'}</p>
+      <p>ID: ${hike._id}</p>
+      </div>
+  `)
+  })
+  console.log(hikeHTML)
+  $('#scrollable-index').html(hikeHTML)
+}
+
 // Handles show By ID submission of form
 const onShowById = function (event) {
   event.preventDefault()
@@ -158,6 +182,7 @@ module.exports = {
   onCreateBtn,
   onShowBtn,
   onShowById,
+  onShowByTrails,
   onEdit,
   onSubmitEdit,
   onDelete,

@@ -34,6 +34,8 @@ $(() => {
   $('#edit_success_message').hide()
   // search functionality
   $('#search-by-id').on('submit', hikeEvents.onShowById)
+  $('#search-by-trails').on('submit', hikeEvents.onShowByTrails)
+  $('#trail-search-btn-clear').on('click', hikeEvents.onIndexBtn)
   // edit functionality
   $('#delete').on('click', hikeEvents.onDelete)
   $('#edit').on('click', hikeEvents.onEdit)
