@@ -158,10 +158,11 @@ input:focus {
   background-color: #FFC312;
   color: black;
 }
-stats {
-  padding-left: 5px;
-  background-color: navy;
-  color: whitesmoke;
+.stats {
+  background-color: maroon;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
 }
 
 .scrollable-index {

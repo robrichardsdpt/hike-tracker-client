@@ -18,6 +18,17 @@ const onCreateHikeFailure = function () {
 // Handles index success and failure
 const onIndexSuccess = function (response) {
   $('#scrollable-index').html('')
+  const hikeTotalDistance = response.hikes.reduce((accumulator, hike) => {
+    return accumulator += hike.distance
+  }, 0)
+  const hikeTotalElevation = response.hikes.reduce((accumulator, hike) => {
+    return accumulator += hike.elevation
+  }, 0)
+  const hikeTotalsHTML = (`
+    <h3>Total Hikes:  ${response.hikes.length}</h3>
+    <h3>Total Distance:  ${hikeTotalDistance} miles</h3>
+    <h3>Total Elevation Gained:  ${hikeTotalElevation} feet</h3>`)
+  $('.stats').html(hikeTotalsHTML)
   // loop through API response data
   response.hikes.forEach(hike => {
     // build HTML element with data
@@ -34,12 +45,7 @@ const onIndexSuccess = function (response) {
       <p>ID: ${hike._id}</p>
       <br>
     `)
-    const hikeTotalDistance = response.hikes.reduce((accumulator, hike) => {
-      return accumulator += hike.distance
-    }, 0)
-    const hikeTotalDistanceHTML = `<div class='stats'><h3>Total Distance:  ${hikeTotalDistance} miles.</h3></div>`
     // append hikeHTML to hike-display element
-    $('#scrollable-index').append(hikeTotalDistanceHTML)
     $('#scrollable-index').append(hikeHTML)
     $('#search-result-failed-container').hide()
     $('#failure_message').hide()
