@@ -29,6 +29,7 @@ const onIndexBtn = function (event) {
   $('#search-result-failed-container').hide()
   $('#failure_message').hide()
   $('#search-by-id').trigger('reset')
+  $('#search-by-trails').trigger('reset')
   hikeApi.getIndex()
     .then(hikeUi.onIndexSuccess)
     .catch(hikeUi.onIndexFailure)
