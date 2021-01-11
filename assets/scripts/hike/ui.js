@@ -34,7 +34,12 @@ const onIndexSuccess = function (response) {
       <p>ID: ${hike._id}</p>
       <br>
     `)
+    const hikeTotalDistance = response.hikes.reduce((accumulator, hike) => {
+      return accumulator += hike.distance
+    }, 0)
+    const hikeTotalDistanceHTML = `<div class='stats'><h3>Total Distance:  ${hikeTotalDistance} miles.</h3></div>`
     // append hikeHTML to hike-display element
+    $('#scrollable-index').append(hikeTotalDistanceHTML)
     $('#scrollable-index').append(hikeHTML)
     $('#search-result-failed-container').hide()
     $('#failure_message').hide()
