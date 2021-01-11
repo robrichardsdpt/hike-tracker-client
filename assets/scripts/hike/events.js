@@ -72,7 +72,7 @@ const onShowByTrails = function (event) {
   const form = event.target
   const data = getFormFields(form)
   const trails = data.hike.trails
-  const filteredHikes = store.hikes.filter(hike => hike.trails.toLowerCase().includes(trails))
+  const filteredHikes = store.hikes.filter(hike => hike.trails.toLowerCase().includes(trails.toLowerCase()))
   const hikeHTML = filteredHikes.map(hike => {
      return (`<div>
       <h4 class='header'>Date: ${hike.date}</h4>
