@@ -151,6 +151,7 @@ input:focus {
   height: 90%;
   margin-bottom: auto;
   width: 600px;
+  overflow: scroll;
 }
 .header {
   padding-left: 5px;
@@ -171,7 +172,6 @@ input:focus {
   background-color: rgba(0,0,0,0);
   color: white;
   height: 100%;
-  overflow: scroll;
 }
 
 #search-container {
