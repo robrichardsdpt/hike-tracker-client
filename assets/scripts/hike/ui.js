@@ -32,10 +32,12 @@ const onIndexSuccess = function (response) {
   }, 0)
   const hike48 = store.hikes.filter(hike => list.listOfNH.includes(hike.mountainsClimbed.toLowerCase()))
   console.log(hike48)
+  const mountainCompare = hikeTotalElevation >= 20310 ? 'You have hiked more than the height of Mt. McKinley' : ''
   const hikeTotalsHTML = (`
     <h3>Total Hikes:  ${store.hikes.length}</h3>
     <h3>Total Distance:  ${hikeTotalDistance} miles</h3>
-    <h3>Total Elevation Gained:  ${hikeTotalElevation} feet</h3>`)
+    <h3>Total Elevation Gained:  ${hikeTotalElevation} feet</h3>
+    <h3>${mountainCompare}</h3>`)
   $('.stats').html(hikeTotalsHTML)
   // loop through API response data
   store.hikes.forEach(hike => {
