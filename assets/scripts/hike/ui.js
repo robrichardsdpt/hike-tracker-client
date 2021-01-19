@@ -1,9 +1,13 @@
 'use strict'
 const store = require('./../store')
 const hikeApi = require('./api')
+const list = require('./listOfNh')
 
 // Handles successful and failed hike creations
 const onCreateHikeSuccess = function (response) {
+  console.log(response)
+  console.log(list)
+  list.listOfNH.includes(response.hike.mountainsClimbed.toLowerCase()) ? console.log('you added a 48!') : console.log('error')
   $('#create_hike').trigger('reset')
   $('#success_message').show()
   $('#success_message').delay(2500).fadeOut('slow')
@@ -26,6 +30,8 @@ const onIndexSuccess = function (response) {
   const hikeTotalElevation = store.hikes.reduce((accumulator, hike) => {
     return accumulator += hike.elevation
   }, 0)
+  const hike48 = store.hikes.filter(hike => list.listOfNH.includes(hike.mountainsClimbed.toLowerCase()))
+  console.log(hike48)
   const hikeTotalsHTML = (`
     <h3>Total Hikes:  ${store.hikes.length}</h3>
     <h3>Total Distance:  ${hikeTotalDistance} miles</h3>
