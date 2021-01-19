@@ -30,9 +30,16 @@ const onIndexSuccess = function (response) {
   const hikeTotalElevation = store.hikes.reduce((accumulator, hike) => {
     return accumulator += hike.elevation
   }, 0)
+  const mountainsClimbedArray = store.hikes.map(hike => {
+    return hike.mountainsClimbed
+  })
+  console.log(mountainsClimbedArray)
+  const mountainsTable = {}
+  mountainsClimbedArray.forEach(mountain => mountainsTable[mountain] ? mountainsTable[mountain]++ : mountainsTable[mountain] = 1)
+  console.log(mountainsTable)
   const hike48 = store.hikes.filter(hike => list.listOfNH.includes(hike.mountainsClimbed.toLowerCase()))
   console.log(hike48)
-  const mountainCompare = hikeTotalElevation >= 29032 ? 'You have hiked more than the height of Mt. Everest!' : ''
+  const mountainCompare = hikeTotalElevation >= 29032 ? 'You have hiked more than the height of Mt. Everest!' : 'Keep hiking!'
   const hikeTotalsHTML = (`
     <h3>Total Hikes:  ${store.hikes.length}</h3>
     <h3>Total Distance:  ${hikeTotalDistance} miles</h3>
