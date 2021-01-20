@@ -37,6 +37,7 @@ $(() => {
   $('#search-by-trails').on('submit', hikeEvents.onShowByTrails)
   $('#trail-search-btn-clear').on('click', hikeEvents.onIndexBtn)
   // edit functionality
+  $('.edit').on('click', hikeEvents.onEdit2)
   $('#delete').on('click', hikeEvents.onDelete)
   $('#edit').on('click', hikeEvents.onEdit)
   $('#edit_success_message').hide()
