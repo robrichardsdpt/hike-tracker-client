@@ -31,15 +31,18 @@ const onIndexSuccess = function (response) {
     return accumulator += hike.elevation
   }, 0)
   const mountainsClimbedArray = store.hikes.map(hike => {
-     return hike.mountainsClimbed
+     return hike.mountainsClimbed.toLowerCase()
   })
   console.log(mountainsClimbedArray)
   const mountainsTable = {}
   mountainsClimbedArray.forEach(mountain => mountainsTable[mountain] ? mountainsTable[mountain]++ : mountainsTable[mountain] = 1)
   console.log(mountainsTable)
   for(let key in mountainsTable) {
+    if (!key) {
+      delete mountainsTable[key]
+    }
     if (key.includes(',')) {
-      const splitKey = key.split(',')
+      const splitKey = key.split(', ')
       for(let i = 0; i < splitKey.length; i++) {
         mountainsTable[splitKey[i]] = mountainsTable[key]
       }
@@ -47,13 +50,15 @@ const onIndexSuccess = function (response) {
     }
   }
   console.log(mountainsTable)
-  const hike48 = store.hikes.filter(hike => list.listOfNH.includes(hike.mountainsClimbed.toLowerCase()))
+  const hike48 = list.listOfNH.filter(hike => mountainsTable[hike] >= 1)
   console.log(hike48)
+  const hike48HTML = hike48.length ? `You have hiked ${hike48.length}/48 4000 foot mountains in NH's White Mountains!` : 'Get started on your 48!'
   const mountainCompare = hikeTotalElevation >= 29032 ? 'You have hiked more than the height of Mt. Everest!' : 'Keep hiking!'
   const hikeTotalsHTML = (`
     <h3>Total Hikes:  ${store.hikes.length}</h3>
     <h3>Total Distance:  ${hikeTotalDistance} miles</h3>
     <h3>Total Elevation Gained:  ${hikeTotalElevation} feet</h3>
+    <h3>${hike48HTML}</h3>
     <h3>${mountainCompare}</h3>`)
   $('.stats').html(hikeTotalsHTML)
   // loop through API response data
