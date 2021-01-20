@@ -122,9 +122,6 @@ const onEdit = function (event) {
   $('#changepw_success_message').hide()
   $('#changepw_failed_message').hide()
 }
-const onEdit2 = function (event) {
-  console.log(event.target.id)
-}
 
 // Handles edit submission
 const onSubmitEdit = function (event) {
@@ -192,6 +189,5 @@ module.exports = {
   onDelete,
   onSubmitDelete,
   onCancelDelete,
-  onCancelEdit,
-  onEdit2
+  onCancelEdit
 }
