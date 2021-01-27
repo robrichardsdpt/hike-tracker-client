@@ -161,7 +161,7 @@ input:focus {
 .stats {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: rgba(128, 0, 0, 0.75);
+  background-color: rgba(128, 0, 0, 0.7);
   border-radius: 10px;
   text-align: center;
   color: white;
@@ -201,4 +201,11 @@ input:focus {
 
 #log-in-btn {
   align-self: flex-end;
+}
+
+.user-email-profile {
+  background-color: rgba(128, 128, 128, 0.7);
+  padding: 10px;
+  border-bottom: white 2px solid;
+  border-top: white 2px solid;
 }

@@ -55,6 +55,8 @@ const onIndexSuccess = function (response) {
   const hike48HTML = hike48.length ? `You have hiked ${hike48.length}/48 4000 foot mountains in NH's White Mountains!` : 'Get started on your 48!'
   const mountainCompare = hikeTotalElevation >= 29032 ? 'You have hiked more than the height of Mt. Everest!' : 'Keep hiking!'
   const hikeTotalsHTML = (`
+    <h2 class="user-email-profile">${store.user.email}</h2>
+    <hr>
     <h3>Total Hikes:  ${store.hikes.length}</h3>
     <h3>Total Distance:  ${hikeTotalDistance} miles</h3>
     <h3>Total Elevation Gained:  ${hikeTotalElevation} feet</h3>
