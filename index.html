@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Hiking log</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="image" property="og:image" content="https://robrichardsdpt.github.io/hike-tracker-client/public/hike-log.png">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    </head>
+    <body>
+
+    <!--nav bar-->
+      <div class ='nav'>
+        <div class='logo col-4'>
+          <i class="fas fa-mountain"></i>
+          <i class="fas fa-hiking"></i>
+          <i class="fas fa-ruler"></i>
+          <i class="fas fa-user-friends"></i>
+          <i class="fas fa-calendar-day"></i>
+          <i class="far fa-clock"></i>
+          <i class="far fa-clipboard"></i>
+          <h1>Hike log</h1>
+        </div>
+        <div class= 'main-nav col-8'>
+          <form id="manage-hikes">
+              <fieldset>
+               <div class="dropdown">
+                 <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Manage my Hikes </button>
+                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <button id="index-btn" class="btn float-right login_btn">View All</button>
+                  <button id="show-btn" class="btn float-right login_btn">Search</button>
+                  <button id="create-btn" class="btn float-right login_btn">Create</button>
+                 </div>
+               </div>
+             </fieldset>
+           </form>
+
+        <!-- Change PW-->
+          <form id="change-password-form">
+            <fieldset>
+             <div class="dropdown">
+               <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Change your password </button>
+               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <input type="password" name="passwords[old]" placeholder="Old Password">
+                <input type="password" name="passwords[new]" placeholder="New Password">
+                 <input type="submit" class="btn float-right login_btn" value="Submit">
+               </div>
+             </div>
+           </fieldset>
+         </form>
+      <!-- Sign Out-->
+        <form id="sign-out">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sign out</button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <input type="submit" class="btn float-right login_btn" value="Sign-out?">
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="alert alert-success" id="sign-in-success">You have successfully signed in!  Click the navigation bar to start! <i class="far fa-thumbs-up"></i></div>
+    <div class="alert alert-success" id="changepw_success_message">Changed password successfully!! <i class="far fa-thumbs-up"></i></div>
+    <div class="alert alert-failure" id="changepw_failed_message">Failed to change password.  Please try again. <i class="far fa-thumbs-down"></i></div>
+    <div class="alert alert-success" id="signout_success_message">Signed out successfully!! <i class="far fa-thumbs-up"></i></div>
+    <div class="alert alert-failure" id="signout_failed_message">Failed to sign out.  Please try again. <i class="far fa-thumbs-down"></i></div>
+  <!-- Sign In-->
+    <div class="container" id="signIn">
+      <div class="d-flex justify-content-center h-100">
+        <div class="card">
+          <div class="card-header">
+            <h3>Sign In</h3>
+          </div>
+        <div class="card-body">
+      <form id="sign-in-form" >
+        <div class="input-group form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-user"></i></span>
+          </div>
+          <input id="sign-in-email" type="email" name="credentials[email]" class="form-control" placeholder="email">
+        </div>
+        <div class="input-group form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
+          </div>
+          <input id="sign-in-password" type="password" name="credentials[password]" class="form-control" placeholder="password">
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Login" class="btn float-right login_btn">
+        </div>
+      </form>
+    </div>
+    <div class="alert alert-failure" id="sign-in-failure">Failed to sign-in.  Please check user/pw. <i class="far fa-thumbs-down"></i></div>
+      <div class="card-footer">
+        <div class="d-flex justify-content-center links">
+        Do not have an account?<input type="submit" value="Sign up" class="btn float-right login_btn" id="sign-up-btn">
+        </div>
+        <div class="d-flex justify-content-center">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sign Up-->
+  <div class="container" id="signUp">
+    <div class="d-flex justify-content-center h-100">
+      <div class="sign-up-card">
+        <div class="card-header">
+          <h3>Sign Up</h3>
+        </div>
+      <div class="card-body">
+        <form id="sign-up-form">
+        <div class="input-group form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-user"></i></span>
+          </div>
+          <input id="sign-up-email" type="email" name="credentials[email]" class="form-control" placeholder="email">
+        </div>
+        <div class="input-group form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
+          </div>
+          <input id="sign-up-password" type="password" name="credentials[password]" class="form-control" placeholder="password">
+        </div>
+        <div class="input-group form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
+          </div>
+          <input id="sign-up-password_confirmation" type="password" name="credentials[password_confirmation]" class="form-control" placeholder="confirm password">
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Sign up" class="btn float-right login_btn">
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <div class="d-flex justify-content-center links">
+        <br>
+        Have an account already?<input type="submit" value="Sign in" class="btn float-right login_btn" id="log-in-btn">
+      </div>
+      <div class="d-flex justify-content-center">
+    </div>
+  </div>
+    <div class="alert alert-failure" id="sign-up-failure">Failed to sign-up. <i class="far fa-thumbs-down"></i></div>
+    <div class="alert alert-success" id="sign-up-success">You are all signed up! <i class="far fa-thumbs-up"></i></div>
+    </div>
+  </div>
+</div>
+
+  <!-- New hike form -->
+  <div class="container create-card" id="newHike">
+    <div>
+      <form class="well form-horizontal" id="create_hike">
+      <fieldset>
+  <!-- Form Name -->
+        <div class="card-header">
+          <legend><center><h2><b>Add a new hike</b></h2></center></legend><br>
+        </div>
+  <!-- Create input for Date-->
+      <div class="form-group">
+        <label class="col-md-8 control-label">Date (required):</label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+            <input placeholder="Date" name="hike[date]" class="form-control"  type="date">
+          </div>
+        </div>
+      </div>
+
+  <!-- Create input for Trails-->
+      <div class="form-group">
+        <label class="col-md-8 control-label">Trail(s) (required):</label>
+         <div class="col-md-8 inputGroupContainer">
+           <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-hiking"></i></span>
+            <input name="hike[trails]" placeholder="Trails hiked" class="form-control"  type="text">
+           </div>
+          </div>
+        </div>
+
+<!-- Create input for Distance-->
+        <div class="form-group">
+          <label class="col-md-8 control-label">Distance hiked(miles):</label>
+          <div class="col-md-8 inputGroupContainer">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-ruler"></i></span>
+              <input  name="hike[distance]" placeholder="Distance hiked in miles." class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+
+<!-- Create input for Elevation-->
+        <div class="form-group">
+          <label class="col-md-8 control-label" >Elevation gain(in feet):</label>
+          <div class="col-md-8 inputGroupContainer">
+           <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-ruler"></i></span>
+            <input name="hike[elevation]" placeholder="Elevation gain in feet." class="form-control"  type="text">
+           </div>
+          </div>
+        </div>
+
+<!-- Create input for time taken-->
+        <div class="form-group">
+          <label class="col-md-8 control-label" >Time taken(in minutes)</label>
+          <div class="col-md-8 inputGroupContainer">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="far fa-clock"></i></span>
+              <input name="hike[timeTaken]" placeholder="Time taken" class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+
+<!-- Create input for mountains-->
+      <div class="form-group">
+        <label class="col-md-8 control-label">Mountain(s) climbed: <br>(separate by comma ie. Mountain1, Mountain2, ...)</label>
+        <div class="col-md-8 inputGroupContainer">
+         <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-mountain"></i></span>
+          <input name="hike[mountainsClimbed]" placeholder="Mountain(s) climbed" class="form-control"  type="text">
+         </div>
+        </div>
+      </div>
+
+<!-- Create input for partner-->
+      <div class="form-group">
+        <label class="col-md-8 control-label">Did you hike with someone?:</label>
+        <div class="col-md-8 inputGroupContainer">
+         <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-user-friends"></i></span>
+          <input name="hike[hikedWith]" placeholder="Names of people you hiked with" class="form-control" type="text">
+         </div>
+        </div>
+      </div>
+
+<!-- Create input for notes-->
+      <div class="form-group">
+        <label class="col-md-8 control-label">Trail notes:</label>
+        <div class="col-md-8 inputGroupContainer">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="far fa-clipboard"></i></span>
+            <input name="hike[trailNotes]" placeholder="Trail notes." class="form-control" type="text">
+          </div>
+        </div>
+      </div>
+
+<!-- Create Success/Failure message -->
+      <div class="alert alert-success" id="success_message">Success!! <i class="far fa-thumbs-up"></i></div>
+      <div class="alert alert-failure" id="failure_message">Failed to create hike. Check to make sure you filled out required fields and data is correct. <i class="far fa-thumbs-down"></i></div>
+<!-- Create Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <input type="submit" value="Submit" class="btn float-right submit-create-btn">
+      </div>
+      </fieldset>
+    </form>
+    </div>
+  </div>
+
+  <!-- Index-->
+  <div class = "container index-card" id="index-container">
+    <div class = "stats"></div>
+    <form id="search-by-trails">
+      <div class="form-group">
+        <label class="col-md-4 control-label">Filter your results:</label>
+         <div class="inputGroupContainer">
+           <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-hiking"></i></span>
+            <input name="hike[trails]" placeholder="Trail, Mountain, Person, or by Trail Notes" class="form-control"  type="text">
+            <input type="submit" value="Submit" class="btn float-right submit-create-btn" id="trail-search-btn">
+            <button class="btn float-right submit-create-btn" id="trail-search-btn-clear">Clear</button>
+          </div>
+          </div>
+        </div>
+      </form>
+    <div class="scrollable-index" id="scrollable-index"></div>
+  </div>
+
+  <!-- Show-->
+  <div class = "container search-card" id="search-container">
+    <h3>Search by ID...</h3>
+    <p>Use Index to find hike to Edit or Delete</p>
+    <form id="search-by-id">
+      <div class="form-group">
+        <label class="col-md-4 control-label">ID:</label>
+         <div class="inputGroupContainer">
+           <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-fingerprint"></i></span>
+            <input name="hike[id]" placeholder="ID #" class="form-control"  type="text">
+            <input type="submit" value="Submit" class="btn float-right submit-create-btn" id="id-search-btn">
+           </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!--Search results-->
+    <div class="container search-result-card" id="search-result-container">
+      <div class="container search-result" id="search-result"></div>
+      <div class="container search-result-delete" id="search-result-delete"></div>
+      <div class="alert alert-success" id="edit_success_message">Success!! <i class="far fa-thumbs-up"></i></div>
+
+      <!-- Edit hike form -->
+        <div id="editHikeContainer">
+          <div class="container edit-card" id="editHike">
+            <div>
+              <form class="well form-horizontal" id="edit_hike">
+              <fieldset>
+                <div class="card-header">
+                  <legend><center><h2><b>Edit your hike</b></h2></center></legend><br>
+                </div>
+        <!--Edit Date info-->
+                  <div class="form-group">
+                    <label class="col-md-8 control-label">Date (required):</label></p>
+                    <div class="col-md-8 inputGroupContainer">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+                        <input name="hike[date]" class="form-control" id="date-edit" type="date">
+                      </div>
+                    </div>
+                  </div>
+
+          <!--Edit Trails info-->
+                  <div class="form-group">
+                    <label class="col-md-8 control-label">Trail(s) (required):</label>
+                    <div class="col-md-8 inputGroupContainer">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-hiking"></i></span>
+                        <input name="hike[trails]" class="form-control" id="trails-edit" type="text">
+                      </div>
+                    </div>
+                  </div>
+
+          <!--Edit Distance info-->
+                  <div class="form-group">
+                    <label class="col-md-8 control-label">Distance (in miles):</label>
+                    <div class="col-md-8 inputGroupContainer">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-ruler"></i></span>
+                        <input name="hike[distance]" class="form-control" id="distance-edit"  type="text">
+                      </div>
+                    </div>
+                  </div>
+
+          <!--Edit Elevation info-->
+                  <div class="form-group">
+                    <label class="col-md-8 control-label">Elevation (in ft):</label>
+                    <div class="col-md-8 inputGroupContainer">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-ruler"></i></span>
+                        <input name="hike[elevation]" class="form-control" id="elevation-edit" type="text">
+                      </div>
+                    </div>
+                  </div>
+
+
+          <!--Edit timeTaken info-->
+                  <div class="form-group">
+                    <label class="col-md-8 control-label" >Time taken(in minutes)</label>
+                    <div class="col-md-8 inputGroupContainer">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="far fa-clock"></i></span>
+                        <input name="hike[timeTaken]" class="form-control" id="time-edit" type="text">
+                      </div>
+                    </div>
+                  </div>
+
+          <!--Edit Mountains info-->
+                <div class="form-group">
+                  <label class="col-md-8 control-label">Mountain(s) climbed: <br>(separate by comma ie. Mountain1, Mountain2)</label>
+                    <div class="col-md-8 inputGroupContainer">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-mountain"></i></span>
+                        <input name="hike[mountainsClimbed]" class="form-control" id="mountains-edit"  type="text">
+                      </div>
+                    </div>
+                  </div>
+
+            <!--Edit Partner info-->
+                  <div class="form-group">
+                    <label class="col-md-8 control-label">Did you hike with someone?</label>
+                    <div class="col-md-8 inputGroupContainer">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+                        <input name="hike[hikedWith]" class="form-control" id="partner-edit" type="text">
+                      </div>
+                    </div>
+                  </div>
+
+            <!--Edit Notes info-->
+                  <div class="form-group">
+                    <label class="col-md-8 control-label">Trail notes:</label>
+                    <div class="col-md-8 inputGroupContainer">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+                        <input name="hike[trailNotes]" class="form-control" id="notes-edit" type="text">
+                      </div>
+                    </div>
+                  </div>
+                  <p id='edit-id'></p>
+
+      <!-- Button -->
+            <div class="input-group-prepend submit" id="edit-fn-btns">
+              <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <input type="submit" value="Submit" class="btn float-right submit-create-btn" id="submit-edit-btn">
+              </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label"></label>
+              <input type="button" value="Cancel" class="btn float-right submit-create-btn" id="cancel-edit-btn">
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+
+<!--Pre edit and delete buttons-->
+    </div>
+      <div id="edit-fn-container">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="edit"><i class="fas fa-edit"></i></span></div>
+        <div class="input-group-prepend delete">
+          <span class="input-group-text" id="delete"><i class="fas fa-trash-alt"></i></span></div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label"></label>
+            <input type="submit" value="Cancel" class="btn float-right submit-create-btn" id="cancel-delete-btn">
+            <input type="submit" value="Delete?" class="btn float-right submit-create-btn" id="submit-delete-btn">
+      </div>
+    </div>
+  </div>
+<!--Search and edit fails-->
+<div class="container search-result-failed-card" id="search-result-failed-container"></div>
+<div class="container edit-result-failed-card" id="edit-result-failed-container"></div>
+  </body>
+</html>
